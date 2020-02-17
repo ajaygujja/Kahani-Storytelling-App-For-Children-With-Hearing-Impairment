@@ -13,16 +13,16 @@ import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     int i = 0;
     int j = 0;
     TextView textSent, textWord;
     Button buttonspeak, buttonstop;
 
-    String[] arthur = {"Once", "a", "wolf", "was", "very", "hungry"," ", "It", "looked", "for", "food", "here", "and", "there"," ", "But", "it", "couldn't", "get", "any"," ", "At", "last", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree"," ", "The", "hungry", "wolf", "squeezed", "into", "the", "hole"," ", "It", "ate", "all", "the", "food", " ","It", "was", "a", "woodcutter's", "lunch"," ", "He", "was", "on", "his", "way", "back", "to", "the", "tree", "to", "have", "lunch"," ", "But", "he", "saw", "there", "was", "no", "food", "in", "the", "hole", "instead", "a", "wolf"," ","On", "seeing", "the", "woodcutter", "the", "wolf", "tried", "to", "get", "out", "of", "the", "hole"," " ,"But", "it", "couldn't", "Its", "tummy", "was", "swollen"," ","The", "woodcutter", "caught", "the", "wolf", "and", "gave", "it", "nice", "beatings"};
+    String[] arthur = {"Once", "a", "wolf", "was", "very", "hungry", " ", "It", "looked", "for", "food", "here", "and", "there", " ", "But", "it", "couldn't", "get", "any", " ", "At", "last", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree", " ", "The", "hungry", "wolf", "squeezed", "into", "the", "hole", " ", "It", "ate", "all", "the", "food", " ", "It", "was", "a", "woodcutter's", "lunch", " ", "He", "was", "on", "his", "way", "back", "to", "the", "tree", "to", "have", "lunch", " ", "But", "he", "saw", "there", "was", "no", "food", "in", "the", "hole", "instead", "a", "wolf", " ", "On", "seeing", "the", "woodcutter", "the", "wolf", "tried", "to", "get", "out", "of", "the", "hole", " ", "But", "it", "couldn't", "Its", "tummy", "was", "swollen", " ", "The", "woodcutter", "caught", "the", "wolf", "and", "gave", "it", "nice", "beatings"};
 
-    String[] joker = {"Once, a wolf was very hungry.\n", "It looked for food here and there.\n", "But it couldn't get any.\n", "At last it found a loaf of bread and piece of meat in the hole of a tree.\n", "The hungry wolf squeezed into the hole.\n", "It ate all the food.\n", "It was a woodcutter's lunch.\n", "He was on his way back to the tree to have lunch.\n", "But he saw there was no food in the hole, instead, a wolf.\n", "On seeing the woodcutter, the wolf tried to get out of the hole.\n", "But it couldn't.\nIts tummy was swollen.\n", "The woodcutter caught the wolf and gave it nice beatings.\n" };
+    String[] joker = {"Once, a wolf was very hungry.\n", "It looked for food here and there.\n", "But it couldn't get any.\n", "At last it found a loaf of bread and piece of meat in the hole of a tree.\n", "The hungry wolf squeezed into the hole.\n", "It ate all the food.\n", "It was a woodcutter's lunch.\n", "He was on his way back to the tree to have lunch.\n", "But he saw there was no food in the hole, instead, a wolf.\n", "On seeing the woodcutter, the wolf tried to get out of the hole.\n", "But it couldn't.\nIts tummy was swollen.\n", "The woodcutter caught the wolf and gave it nice beatings.\n"};
 
     private TextToSpeech tts;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_Hungry_Fox);
 
         //Initialization of Views
         textSent = findViewById(R.id.textview);
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         textWord.setText(arthur[0]);
 
         // Initialization of Text To Speech
-        tts = new TextToSpeech(MainActivity.this /* context */, this /* listener */);
+        tts = new TextToSpeech(HungryFox.this, this);
 
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         buttonspeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(){
-                    public void run(){
-                        MainActivity.this.runOnUiThread(new runnable() {
+                new Thread() {
+                    public void run() {
+                        HungryFox.this.runOnUiThread(new runnable() {
                             @Override
                             public void run() {
                                 speak(arthur, i);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private void stop() {
         new Thread() {
             public void run() {
-                MainActivity.this.runOnUiThread(new runnable() {
+                HungryFox.this.runOnUiThread(new runnable() {
                     public void run() {
 
                         Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show();
@@ -110,13 +110,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private abstract class runnable implements Runnable {
     }
 
+    //Initialization of Utterance Listener
     UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
 
         @Override
         public void onStart(String utteranceId) {
             new Thread() {
                 public void run() {
-                    MainActivity.this.runOnUiThread(new runnable() {
+                    HungryFox.this.runOnUiThread(new runnable() {
                         public void run() {
                             // For Highlighting Spoken Words
                             String Replce = "<span style= 'background-color:green'>" + arthur[i] + "</span>";
@@ -138,10 +139,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             speak(arthur, i);
 
             // For Incrementing Sentences
-            if (arthur[i].equals(" ")){
+            if (arthur[i].equals(" ")) {
                 j++;
                 textSent.setText(joker[j]);
             }
         }
     };
+
 }

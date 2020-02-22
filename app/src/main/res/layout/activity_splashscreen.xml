@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:gravity="center"
+
     tools:context=".splashscreen">
 
     <ImageView
+        android:id="@+id/splash_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        />
+        android:layout_height="355dp"
+        app:srcCompat="@drawable/logo" />
+
 
 </LinearLayout>

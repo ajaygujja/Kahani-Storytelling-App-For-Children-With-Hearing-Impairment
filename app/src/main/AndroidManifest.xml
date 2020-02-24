@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FourthStory"></activity>
         <activity android:name=".ThirdStory" />
-        <activity android:name=".SecondStory" />
+        <activity android:name=".GreedyLion" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

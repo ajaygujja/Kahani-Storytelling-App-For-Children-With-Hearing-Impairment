@@ -42,7 +42,7 @@ public class SlideAdapter extends PagerAdapter {
 
     public int[] actLayout = {
             R.layout.activity_hungry_fox,
-            R.layout.activity_second_story,
+            R.layout.activity_greedy_lion,
             R.layout.activity_third_story,
             R.layout.activity_fourth_story,
 
@@ -99,7 +99,7 @@ public class SlideAdapter extends PagerAdapter {
                     context.startActivity(i);
                 }
                 if (position == 1) {
-                    i = new Intent(context, SecondStory.class);
+                    i = new Intent(context, GreedyLion.class);
                     context.startActivity(i);
                 }
                 if (position == 2) {

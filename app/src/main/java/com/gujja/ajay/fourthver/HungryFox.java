@@ -89,9 +89,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             public void run() {
                 HungryFox.this.runOnUiThread(new runnable() {
                     public void run() {
-
                         Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show();
-
                     }
                 });
             }

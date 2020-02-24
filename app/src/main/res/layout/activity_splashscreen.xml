@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:gravity="center"
-
+    android:background="@drawable/splashgradeint"
     tools:context=".splashscreen">
 
-    <ImageView
-        android:id="@+id/splash_image"
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/splashscreen"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        app:lottie_fileName="books.json" />
+
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="355dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:fontFamily="@font/gelasio_regular"
+        android:text="KAHANI"
+        android:textColor="#1b262c"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
 
-</LinearLayout>
+</RelativeLayout>

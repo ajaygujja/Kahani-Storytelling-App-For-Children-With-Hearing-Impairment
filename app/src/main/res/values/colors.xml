@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFC107</color>
-    <color name="colorPrimaryDark">#FFA000</color>
+
+    <color name="colorPrimary">#5df2d6</color>
+    <color name="colorPrimaryDark">#00bfa5</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorTransparent">#cccccc</color>
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="lightgray">#ededed</color>
     <color name="deeppurple">#7c4cff</color>
@@ -10,4 +12,5 @@
     <color name="dark_gray">#6c6c6c</color>
     <color name="green">#00bfa5</color>
     <color name="pink">#ff4081</color>
+
 </resources>

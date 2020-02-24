@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/slideLinearLayout"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/slideImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
+
+    <TextView
+        android:fontFamily="@font/oswald_bold"
+        android:textColor="#fff"
+        android:id="@+id/TxtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/textDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:fontFamily="@font/oswald_regular"
+        android:text="Description"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        />
+
+
+    <Button
+        android:id="@+id/btnOrder"
+        android:text="Read Now!"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="30dp"
+        android:textColor="#fff"
+        android:background="@drawable/round"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+</LinearLayout>

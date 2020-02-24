@@ -1,5 +1,6 @@
 package com.gujja.ajay.fourthver;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
+
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -19,6 +22,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     int j = 0;
     TextView textSent, textWord;
     Button buttonspeak, buttonstop;
+    VideoView hungeyvideoview;
 
     String[] arthur = {"Once", "a", "wolf", "was", "very", "hungry", " ", "It", "looked", "for", "food", "here", "and", "there", " ", "But", "it", "couldn't", "get", "any", " ", "At", "last", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree", " ", "The", "hungry", "wolf", "squeezed", "into", "the", "hole", " ", "It", "ate", "all", "the", "food", " ", "It", "was", "a", "woodcutter's", "lunch", " ", "He", "was", "on", "his", "way", "back", "to", "the", "tree", "to", "have", "lunch", " ", "But", "he", "saw", "there", "was", "no", "food", "in", "the", "hole", "instead", "a", "wolf", " ", "On", "seeing", "the", "woodcutter", "the", "wolf", "tried", "to", "get", "out", "of", "the", "hole", " ", "But", "it", "couldn't", "Its", "tummy", "was", "swollen", " ", "The", "woodcutter", "caught", "the", "wolf", "and", "gave", "it", "nice", "beatings"};
 
@@ -30,13 +34,14 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_Hungry_Fox);
+        setContentView(R.layout.activity_hungry_fox);
 
         //Initialization of Views
         textSent = findViewById(R.id.textview);
         textWord = findViewById(R.id.TextWord);
         buttonspeak = findViewById(R.id.Buttonspeak);
         buttonstop = findViewById(R.id.buttonstop);
+        hungeyvideoview = findViewById(R.id.HungryVideoView);
 
         //Setting Default Text
         textSent.setText(joker[0]);
@@ -48,6 +53,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
+
         buttonspeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,12 +63,18 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                             @Override
                             public void run() {
                                 speak(arthur, i);
+                                //int rawId = getResources().getIdentifier("once",  "raw",getPackageName());
+
+
                             }
                         });
                     }
                 }.start();
             }
         });
+
+
+
 
         buttonstop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +102,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         textSent.setText(joker[0]);
     }
 
+
     private void speak(String[] text, int i) {
 
         tts.setSpeechRate(0.8f);
@@ -110,11 +123,14 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     private abstract class runnable implements Runnable {
     }
 
+
     //Initialization of Utterance Listener
     UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
 
         @Override
         public void onStart(String utteranceId) {
+
+
             new Thread() {
                 public void run() {
                     HungryFox.this.runOnUiThread(new runnable() {
@@ -122,6 +138,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                             // For Highlighting Spoken Words
                             String Replce = "<span style= 'background-color:green'>" + arthur[i] + "</span>";
                             textWord.setText(Html.fromHtml(Replce));
+
+                            hungeyvideoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.once));
+                            hungeyvideoview.requestFocus();
+                            hungeyvideoview.start();
+
                         }
                     });
                 }
@@ -134,6 +155,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         @Override
         public void onDone(String utteranceId) {
+
             // For Incrementing Words
             i = i + 1;
             speak(arthur, i);
@@ -145,5 +167,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             }
         }
     };
+
 
 }

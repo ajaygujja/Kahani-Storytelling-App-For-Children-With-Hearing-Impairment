@@ -32,10 +32,10 @@ public class SlideAdapter extends PagerAdapter {
     // List Of Description
     public String[] ist_desc = {
             "The hungry fox who got caught in the tree trunk" +
-                    " while WoodCutter was Working",
+                    " while WoodCutter was Working.",
             "Donkey and A Seller." +
                     "Donkey gets lucky everytime." +
-                    "But this time luck Ran out this Time",
+                    "But this time luck Ran out this Time.",
             "Description 3",
             "Description 4",
     };
@@ -94,19 +94,23 @@ public class SlideAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 Intent i;
-                if (position == 0){
-                    i = new Intent(context,HungryFox.class); context.startActivity(i);
-                }if (position == 1){
-                    i = new Intent(context,SecondStory.class); context.startActivity(i);
-                }if (position == 2){
-                    i = new Intent(context,ThirdStory.class); context.startActivity(i);
-                }if (position == 3){
-                    i = new Intent(context,FourthStory.class); context.startActivity(i);
+                if (position == 0) {
+                    i = new Intent(context, HungryFox.class);
+                    context.startActivity(i);
+                }
+                if (position == 1) {
+                    i = new Intent(context, SecondStory.class);
+                    context.startActivity(i);
+                }
+                if (position == 2) {
+                    i = new Intent(context, ThirdStory.class);
+                    context.startActivity(i);
+                }
+                if (position == 3) {
+                    i = new Intent(context, FourthStory.class);
+                    context.startActivity(i);
                 }
 
-
-
-                //Intent intent = new Intent(context,actLayout[position].class);
             }
         });
 

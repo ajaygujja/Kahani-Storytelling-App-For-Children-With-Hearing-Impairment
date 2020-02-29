@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -33,7 +32,7 @@
             android:layout_height="0dp"
             android:layout_weight="30"
             android:fontFamily="@font/gelasio_italic"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,17 +46,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:gravity="center"
+            style="?android:attr/buttonBarStyle"
             android:layout_height="wrap_content">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Buttonspeak"
+
+                style="?android:attr/buttonBarButtonStyle"
                 android:text="Speak"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/buttonstop"
                 android:text="Stop"
                 />
@@ -70,12 +73,17 @@
             android:layout_height="match_parent">
 
 
-            <VideoView
-                android:id="@+id/HungryVideoView"
-                android:layout_gravity="center"
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/SignImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFF"/>
+                android:layout_gravity="center"
+                android:padding="2dp"/>
+
+
+
+
+
 
         </LinearLayout>
 

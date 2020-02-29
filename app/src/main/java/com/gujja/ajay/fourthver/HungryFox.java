@@ -38,6 +38,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             R.raw.was,
             R.raw.very,
             R.raw.hungry,
+            R.raw.coffee
 
     };
 
@@ -52,6 +53,8 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         buttonspeak = findViewById(R.id.Buttonspeak);
         buttonstop = findViewById(R.id.buttonstop);
         signImage = findViewById(R.id.SignImage);
+
+        GifImageView gifImageView = new GifImageView(this);
 
         //Setting Default Text
         textSent.setText(joker[0]);
@@ -71,17 +74,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         buttonspeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*new Thread() {
-                    public void run() {
-                        HungryFox.this.runOnUiThread(new runnable() {
-                            @Override
-                            public void run() {
-                                speak(arthur, i);
-                                //int rawId = getResources().getIdentifier("cloud",  "raw",getPackageName());
-                            }
-                        });
-                    }
-                }.start();*/
 
                 speak(arthur,i);
 
@@ -89,12 +81,10 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         });
 
 
-
-
         buttonstop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stop1();
+                stop();
             }
         });
     }
@@ -106,19 +96,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     @Override
     public void stop() {
-
-    }
-
-    private void stop1() {
-       /* new Thread() {
-            public void run() {
-                HungryFox.this.runOnUiThread(new runnable() {
-                    public void run() {
-                        Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }.start();*/
 
         tts.stop();
         tts.shutdown();
@@ -133,7 +110,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     private void speak(String[] text, int i) {
 
-        tts.setSpeechRate(0.8f);
+        tts.setSpeechRate(0.7f);
         tts.setPitch(1f);
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "Message ID");
@@ -183,22 +160,20 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
             if (i <= SignLang.length){
                 signImage.setImageResource(SignLang[i]);
-              /* if(isRunning()){
+              /*if(isRunning()){
                    new Thread(new runnable() {
                        @Override
                        public void run() {
-
+                            SignLang.wait();
                        }
                    });
                }else {
                    onDone("Message ID");
-               }
-*/
+               }*/
 
+            }
 
-
-
-            }else{
+            else {
                 signImage.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.coffee));
             }
 

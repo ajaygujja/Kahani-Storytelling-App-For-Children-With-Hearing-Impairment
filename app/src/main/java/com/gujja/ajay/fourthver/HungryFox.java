@@ -1,7 +1,6 @@
 package com.gujja.ajay.fourthver;
 
 import android.graphics.drawable.Animatable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -24,23 +23,23 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     GifImageView signImage;
     Button buttonspeak, buttonstop;
 
-    String[] arthur = {"Once", "a", "wolf", "was", "very", "hungry", " ", "It", "looked", "for", "food", "here", "and", "there", " ", "But", "it", "couldn't", "get", "any", " ", "At", "last", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree", " ", "The", "hungry", "wolf", "squeezed", "into", "the", "hole", " ", "It", "ate", "all", "the", "food", " ", "It", "was", "a", "woodcutter's", "lunch", " ", "He", "was", "on", "his", "way", "back", "to", "the", "tree", "to", "have", "lunch", " ", "But", "he", "saw", "there", "was", "no", "food", "in", "the", "hole", "instead", "a", "wolf", " ", "On", "seeing", "the", "woodcutter", "the", "wolf", "tried", "to", "get", "out", "of", "the", "hole", " ", "But", "it", "couldn't", "Its", "tummy", "was", "swollen", " ", "The", "woodcutter", "caught", "the", "wolf", "and", "gave", "it", "nice", "beatings"};
+    String[] arthur = {"Once", "a", "fox", "was", "very", "hungry", " ", "It", "looked", "for", "food", "here", "and", "there", " ", "But", "it", "could","not", "get", "any", " ", "Atlast", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree", " ", "The", "hungry", "fox", "squeezed", "into", "the", "hole", " ", "It", "ate", "all", "the", "food", " ", "It", "was", "a", "woodcutter's", "lunch", " ", "He", "was", "on", "his", "way", "back", "to", "the", "tree", "to", "have", "lunch", " ", "But", "he", "saw", "there", "was", "no", "food", "in", "the", "hole", "instead", "a", "fox", " ", "On", "seeing", "the", "woodcutter", "the", "fox", "tried", "to", "get", "out", "of", "the", "hole", " ", "But", "it", "couldn't", "Its", "tummy", "was", "swollen", " ", "The", "woodcutter", "caught", "the", "fox", "and", "gave", "it", "nice", "beatings"};
 
-    String[] joker = {"Once, a wolf was very hungry.\n", "It looked for food here and there.\n", "But it couldn't get any.\n", "At last it found a loaf of bread and piece of meat in the hole of a tree.\n", "The hungry wolf squeezed into the hole.\n", "It ate all the food.\n", "It was a woodcutter's lunch.\n", "He was on his way back to the tree to have lunch.\n", "But he saw there was no food in the hole, instead, a wolf.\n", "On seeing the woodcutter, the wolf tried to get out of the hole.\n", "But it couldn't.\nIts tummy was swollen.\n", "The woodcutter caught the wolf and gave it nice beatings.\n"};
+    String[] joker = {"Once, a fox was very hungry.\n", "It looked for food here and there.\n", "But it could not get any.\n", "At last it found a loaf of bread and piece of meat in the hole of a tree.\n", "The hungry fox squeezed into the hole.\n", "It ate all the food.\n", "It was a woodcutter's lunch.\n", "He was on his way back to the tree to have lunch.\n", "But he saw there was no food in the hole, instead, a fox.\n", "On seeing the woodcutter, the fox tried to get out of the hole.\n", "But it couldn't.\nIts tummy was swollen.\n", "The woodcutter caught the fox and gave it nice beatings.\n"};
 
     private TextToSpeech tts;
     int index = 0;
 
-    private int[] SignLang = {
+    /*private int[] SignLang = {
             R.raw.once,
             R.raw.a,
-            R.raw.wolf,
+            R.raw.fox,
             R.raw.was,
             R.raw.very,
             R.raw.hungry,
             R.raw.coffee
 
-    };
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +61,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         //signImage.setImageResource(SignLang[1]);
 
 
-
-
         // Initialization of Text To Speech
         tts = new TextToSpeech(HungryFox.this, this);
 
@@ -76,7 +73,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             public void onClick(View v) {
 
                 speak(arthur,i);
-
             }
         });
 
@@ -101,6 +97,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         tts.shutdown();
         textWord.setText(arthur[0]);
         textSent.setText(joker[0]);
+        signImage.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -110,8 +107,8 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     private void speak(String[] text, int i) {
 
-        tts.setSpeechRate(0.7f);
-        tts.setPitch(1f);
+        tts.setSpeechRate(0.4f);
+        tts.setPitch(0.8f);
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "Message ID");
         tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
@@ -149,7 +146,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
 
     //Initialization of Utterance Listener
-    UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+    final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
 
         @Override
         public void onStart(String utteranceId) {
@@ -158,9 +155,20 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             String Replce = "<span style= 'background-color:green'>" + arthur[i] + "</span>";
             textWord.setText(Html.fromHtml(Replce));
 
-            if (i <= SignLang.length){
+
+            int ajay = getResources().getIdentifier(String.valueOf(arthur[i].toLowerCase()), "raw", getPackageName());
+
+           /* InputStream ins = getResources().openRawResource(
+                    getResources().getIdentifier(String.valueOf(SignLang[i]),
+                            "raw", getPackageName()));
+
+            if (arthur[i] != ajay) {
+
+            }*/
+            signImage.setImageResource(ajay);
+           /* if (i <= SignLang.length){
                 signImage.setImageResource(SignLang[i]);
-              /*if(isRunning()){
+              *//*if(isRunning()){
                    new Thread(new runnable() {
                        @Override
                        public void run() {
@@ -169,15 +177,14 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                    });
                }else {
                    onDone("Message ID");
-               }*/
+               }*//*
 
             }
 
             else {
                 signImage.setImageURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.coffee));
             }
-
-
+            */
 
             /*new Thread() {
                 public void run() {

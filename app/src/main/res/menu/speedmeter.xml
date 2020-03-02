@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/item1"
+        android:title="Speed"
+        android:icon="@drawable/ic_speed"
+        app:showAsAction="ifRoom"
+
+        >
+        <menu>
+
+            <item
+                android:id="@+id/Slow"
+                android:title="Slow"/>
+
+            <item
+                android:id="@+id/Normal"
+                android:title="Normal"/>
+
+            <item
+                android:id="@+id/Fast"
+                android:title="Fast"/>
+
+        </menu>
+
+    </item>
+
+</menu>

@@ -1,11 +1,12 @@
 package com.gujja.ajay.fourthver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.VideoView;
 import java.util.HashMap;
 import java.util.Locale;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     int i = 0;
@@ -23,6 +26,8 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     Button buttonspeak, buttonstop;
     VideoView greedylionvideoview;
     private TextToSpeech tts;
+
+    float speed = 0.8f;
 
     String[] Greedy = {"It was an incredibly hot day, and a lion was feeling very hungry.\n",
             "He came out of his den and searched here and there.",
@@ -109,7 +114,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
     private void speak(String[] text, int i) {
 
-        tts.setSpeechRate(1f);
+        tts.setSpeechRate(speed);
         tts.setPitch(1f);
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "Message ID");
@@ -165,4 +170,40 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.speedmeter,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()){
+            case R.id.Slow :
+                speed = 0.4f;
+                Toast.makeText(this,"Slow is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Normal :
+                speed = 0.8f;
+                Toast.makeText(this,"Normal is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Fast :
+                speed = 1.2f;
+                Toast.makeText(this,"Fast is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+
 }

@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -19,6 +23,8 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     int i = 0;
     int j = 0;
+    float speed = 0.8f;
+
     TextView textSent, textWord;
     GifImageView signImage;
     Button buttonspeak, buttonstop;
@@ -30,16 +36,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     private TextToSpeech tts;
     int index = 0;
 
-    /*private int[] SignLang = {
-            R.raw.once,
-            R.raw.a,
-            R.raw.fox,
-            R.raw.was,
-            R.raw.very,
-            R.raw.hungry,
-            R.raw.coffee
 
-    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,30 +104,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     private void speak(String[] text, int i) {
 
-        tts.setSpeechRate(0.4f);
-        tts.setPitch(0.8f);
+        tts.setSpeechRate(speed);  // 0.4f
+        tts.setPitch(1.0f);       // 0.8f
         HashMap<String, String> map = new HashMap<String, String>();
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "Message ID");
         tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
-
-        /*new Thread() {
-            public void run() {
-                HungryFox.this.runOnUiThread(new runnable() {
-                    @Override
-                    public void run() {
-                       // MediaController mediaController = new MediaController(HungryFo);
-                       // mediaController.setAnchorView(hungeyvideoview);
-                        hungeyvideoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.cloud));
-                        hungeyvideoview.requestFocus();
-                        hungeyvideoview.setSoundEffectsEnabled(false);
-                        hungeyvideoview.start();
-
-                    }
-                });
-            }
-
-        }.start();
-*/
 
     }
 
@@ -158,13 +136,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
             int ajay = getResources().getIdentifier(String.valueOf(arthur[i].toLowerCase()), "raw", getPackageName());
 
-           /* InputStream ins = getResources().openRawResource(
-                    getResources().getIdentifier(String.valueOf(SignLang[i]),
-                            "raw", getPackageName()));
-
-            if (arthur[i] != ajay) {
-
-            }*/
             signImage.setImageResource(ajay);
            /* if (i <= SignLang.length){
                 signImage.setImageResource(SignLang[i]);
@@ -186,23 +157,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             }
             */
 
-            /*new Thread() {
-                public void run() {
-                    HungryFox.this.runOnUiThread(new runnable() {
-                        public void run() {
-                            // For Highlighting Spoken Words
-                            String Replce = "<span style= 'background-color:green'>" + arthur[i] + "</span>";
-                            textWord.setText(Html.fromHtml(Replce));
-
-
-                           *//* hungeyvideoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.once));
-                            hungeyvideoview.requestFocus();
-                            hungeyvideoview.start();*//*
-
-                        }
-                    });
-                }
-            }.start();*/
         }
 
         @Override
@@ -224,5 +178,36 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         }
     };
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.speedmeter,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()){
+            case R.id.Slow :
+                speed = 0.4f;
+                Toast.makeText(this,"Slow is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Normal :
+                speed = 0.8f;
+                Toast.makeText(this,"Normal is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.Fast :
+                speed = 1.2f;
+                Toast.makeText(this,"Fast is selected",Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 }

@@ -6,10 +6,12 @@
     <item android:id="@+id/item1"
         android:title="Speed"
         android:icon="@drawable/ic_speed"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
 
         >
         <menu>
+
+
 
             <item
                 android:id="@+id/Slow"

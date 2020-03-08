@@ -24,7 +24,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     int i = 0;
     int j = 0;
     int index = 0;
-    float speed = 0.8f;
+    float speed = 0.7f;
 
     private TextToSpeech tts;
 
@@ -58,8 +58,12 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             "But it couldn't.\nIts tummy was swollen.\n",
             "The woodcutter caught the fox and gave it nice beatings.\n"};
 
-    String [] words = {
-            "the","all","into","but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught","gave"
+    String [] stopwords = {
+            "the","all","into","loaf","but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught","gave",
+            "it","came","on","become","trick","with","carry","cotton","that","felt","every","stream","lesson","let","upon",
+            "tremble","fear","left","anpther","other","by","hunter","thus","afterwards","used","cross","tumbled","also","fell","hence",
+            "loaded","would","be","still","become","dampened","wet","anymore" , "an","feeling","den","find","only","hesitation","can","fill",
+            "as","about","instead","went","letting","off"
     };
 
 
@@ -147,35 +151,63 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         tts.setPitch(1.0f);       // 0.8f
         HashMap<String, Character> map2 = new HashMap<>();
         HashMap<String, String> map = new HashMap<>();
+        HashMap<String, String> map3 = new HashMap<>();
         //b.putChar(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,"Mesage".charAt(0));
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,arthur[i]);
 
 
 
+        for (int k = 0; k < stopwords.length;k++) {
+            if (arthur[i] == stopwords[k]) {
+                char[] alphabet_array = stopwords[k].toCharArray();
+
+                for (int z = 0;z< alphabet_array.length;z++){
+                    map3.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
+
+                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map3);
+                }
+
+            }
+        }
 
 
-            if (arthur[i].equals("for")) {
 
-               char[] alphbetarray  = "for".toCharArray();
+
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, arthur[i]);
+        tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
+
+
+        if (arthur[i].equals(" ")) {
+            j++;
+            textSent.setText(joker[j]);
+        }
+
+
+
+
+
+            /*if (arthur[i].equals("for")) {
+
+               char[] alphabet_array  = "for".toCharArray();
 
                 alphabets.setText("for");
-                for (int k = 0; k <= alphbetarray.length;k++){
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,String.valueOf(alphbetarray[k]));
+                for (int k = 0; k <= alphabet_array.length;k++){
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,String.valueOf(alphabet_array[k]));
 
-                    tts.speak(String.valueOf(alphbetarray[k]), TextToSpeech.QUEUE_ADD, map);
+                    tts.speak(String.valueOf(alphabet_array[k]), TextToSpeech.QUEUE_ADD, map);
                 }
 
 
 
             } else if(arthur[i].equals("and")){
-               char[] alphbetarray  = "and".toCharArray();
+               char[] alphabet_array  = "and".toCharArray();
 
-                for (int k = 0; k <= alphbetarray.length;k++){
+                for (int k = 0; k <= alphabet_array.length;k++){
                     alphabets.setText("and");
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,String.valueOf(alphbetarray[k]));
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,String.valueOf(alphabet_array[k]));
 
-                    tts.speak(String.valueOf(alphbetarray[k]), TextToSpeech.QUEUE_ADD, map);
+                    tts.speak(String.valueOf(alphabet_array[k]), TextToSpeech.QUEUE_ADD, map);
                 }
             }
 
@@ -185,14 +217,10 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                 tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
                 map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,arthur[i]);
 
-            }
+            }*/
         }
 
 
-
-    public void humanity(){
-
-    }
 
     @Override
     public void onInit(int status) {
@@ -279,10 +307,10 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             speak(arthur, i);
 
             // For Incrementing Sentences
-            if (arthur[i].equals(" ")) {
+            /*if (arthur[i].equals(" ")) {
                 j++;
                 textSent.setText(joker[j]);
-            }
+            }*/
         }
     };
 
@@ -299,17 +327,17 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         switch (item.getItemId()){
             case R.id.Slow :
-                speed = 0.4f;
+                speed = 0.3f;
                 Toast.makeText(this,"Slow is selected",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.Normal :
-                speed = 0.8f;
+                speed = 0.7f;
                 Toast.makeText(this,"Normal is selected",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.Fast :
-                speed = 1.2f;
+                speed = 1f;
                 Toast.makeText(this,"Fast is selected",Toast.LENGTH_SHORT).show();
                 return true;
 
@@ -319,4 +347,9 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
 }

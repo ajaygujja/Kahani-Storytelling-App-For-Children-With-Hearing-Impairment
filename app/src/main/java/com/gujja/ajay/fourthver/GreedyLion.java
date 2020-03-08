@@ -27,6 +27,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     VideoView greedylionvideoview;
     private TextToSpeech tts;
 
+    int index = 0;
     float speed = 0.8f;
 
     String[] Greedy = {
@@ -45,20 +46,20 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             "The lion now felt sorry for letting the hare off."
     };
 
+
     String[] lion = {
-            "the","all",
-            "It", "was", "an", "incredibly", "hot", "day", "and", "a", "lion", "was", "feeling", "very", "hungry","  ",
-            "He", "came", "out", "of", "his", "den", "and", "searched", "here", "and", "there","  ",
-            "He", "could", "find", "only", "a", "small", "hare","  ",
+            "It", "was", "an", "incredibly", "hot", "day", "and", "a", "lion", "was", "feeling", "very", "hungry"," ",
+            "He", "came", "out", "of", "his", "den", "and", "searched", "here", "and", "there"," ",
+            "He", "could", "find", "only", "a", "small", "hare"," ",
             "He", "caught", "the", "hare", "with", "some", "hesitation", " ",
-            "This", "hare", "can't", "fill", "my", "stomach", "thought", "the", "lion","  ",
-            "As", "the", "lion", "was", "about", "to", "kill", "the", "hare", "  ",
-            "a", "deer", "ran", "that", "way", "  ",
-            "The", "lion", "became", "greedy", "He", "thought", "  ",
-            "Instead", "of", "eating", "this", "small", "hare","  ",
-            "let", "me", "eat", "the", "big", "deer", "  ",
-            "He", "let", "the", "hare", "go", "and", "went", "behind", "the", "deer", "  ",
-            "But", "the", "deer", "had", "vanished", "into", "the", "forest", "  ",
+            "This", "hare", "can't", "fill", "my", "stomach", "thought", "the", "lion"," ",
+            "As", "the", "lion", "was", "about", "to", "kill", "the", "hare", " ",
+            "a", "deer", "ran", "that", "way", " ",
+            "The", "lion", "became", "greedy", "He", "thought", " ",
+            "Instead", "of", "eating", "this", "small", "hare"," ",
+            "let", "me", "eat", "the", "big", "deer", " ",
+            "He", "let", "the", "hare", "go", "and", "went", "behind", "the", "deer", " ",
+            "But", "the", "deer", "had", "vanished", "into", "the", "forest", " ",
             "The", "lion", "now", "felt", "sorry", "for", "letting", "the", "hare", "off"
     };
 
@@ -142,9 +143,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
         tts.setSpeechRate(speed);
         tts.setPitch(1f);
-        final HashMap<String, String> map = new HashMap<>();
-
-
+        HashMap<String, String> map = new HashMap<>();
 
 
 
@@ -152,7 +151,8 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             if (lion[i] == stopwords[k]) {
                 char[] alphabet_array = stopwords[k].toCharArray();
 
-                for (int z = 0;z< alphabet_array.length;z++){
+                for (int z = 0; z< alphabet_array.length; z++){
+
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
 
                     tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
@@ -162,11 +162,8 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         }
 
 
-
-
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, lion[i]);
         tts.speak(lion[i], TextToSpeech.QUEUE_ADD, map);
-
 
     }
 
@@ -206,11 +203,14 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             i = i + 1;
             speak(lion, i);
 
-            // For Incrementing Sentences
-            if (lion[i].equals("  ")) {
+
+            if(utteranceId.equals(" ")){
                 j++;
                 textSent.setText(Greedy[j]);
+
             }
+
+
 
         }
 

@@ -145,17 +145,10 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     private void speak(String[] text, int i) {
 
-       // Bundle b = new Bundle();
 
-        tts.setSpeechRate(speed);  // 0.4f
-        tts.setPitch(1.0f);       // 0.8f
-        HashMap<String, Character> map2 = new HashMap<>();
+        tts.setSpeechRate(speed);  // 0.7f
+        tts.setPitch(1.0f);
         HashMap<String, String> map = new HashMap<>();
-        HashMap<String, String> map3 = new HashMap<>();
-        //b.putChar(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,"Mesage".charAt(0));
-
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,arthur[i]);
-
 
 
         for (int k = 0; k < stopwords.length;k++) {
@@ -163,25 +156,18 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                 char[] alphabet_array = stopwords[k].toCharArray();
 
                 for (int z = 0;z< alphabet_array.length;z++){
-                    map3.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
 
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map3);
+                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
+
                 }
 
             }
         }
 
 
-
-
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, arthur[i]);
-        tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
-
-
-        if (arthur[i].equals(" ")) {
-            j++;
-            textSent.setText(joker[j]);
-        }
+            map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, arthur[i]);
+            tts.speak(arthur[i], TextToSpeech.QUEUE_ADD, map);
 
 
 
@@ -299,18 +285,15 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         @Override
         public void onDone(String utteranceId) {
 
-            if(index > 1){
-                index = index + 1;
-            }
             // For Incrementing Words
-            i = i + 1;
+           i = i + 1;
             speak(arthur, i);
 
             // For Incrementing Sentences
-            /*if (arthur[i].equals(" ")) {
+            if (utteranceId.equals(" ")) {
                 j++;
                 textSent.setText(joker[j]);
-            }*/
+            }
         }
     };
 

@@ -53,26 +53,26 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
 
 
 
-     String[] friend_sentence = {"Once upon a time there lived a lion in a forest.",
-             "One day after a heavy meal.",
-             "It was sleeping under a tree.",
-             "After a while, there came a mouse and it started to play on the lion.",
-             "Suddenly the lion got up with anger and looked for those who disturbed its nice sleep.",
-             "Then it saw a small mouse standing trembling with fear.",
-             "The lion jumped on it and started to kill it.",
-             "The mouse requested the lion to forgive it.",
-             "The lion felt pity and left it.",
-             "The mouse ran away.",
-             "On another day, the lion was caught in a net by a hunter.",
-             "The mouse came there and cut the net.",
-             "Thus it escaped.",
-             "There after, the mouse and the lion became friends.",
-             "They lived happily in the forest afterwards."};
+    String[] friend_sentence = {"Once upon a time there lived a lion in a forest.",
+         "One day after a heavy meal.",
+         "It was sleeping under a tree.",
+         "After a while, there came a mouse and it started to play on the lion.",
+         "Suddenly the lion got up with anger and looked for those who disturbed its nice sleep.",
+         "Then it saw a small mouse standing trembling with fear.",
+         "The lion jumped on it and started to kill it.",
+         "The mouse requested the lion to forgive it.",
+         "The lion felt pity and left it.",
+         "The mouse ran away.",
+         "On another day, the lion was caught in a net by a hunter.",
+         "The mouse came there and cut the net.",
+         "Thus it escaped.",
+         "There after, the mouse and the lion became friends.",
+         "They lived happily in the forest afterwards."};
 
     String [] stopwords = {
             "the","all","into","loaf","but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught","gave",
-            "it","came","on","become","trick","with","carry","cotton","that","felt","every","stream","lesson","let","upon",
-            "tremble","fear","left","anpther","other","by","hunter","thus","afterwards","used","cross","tumbled","also","fell","hence",
+            "it","came","on","become","trick","with","carry","cotton","that", "felt", "every","stream","lesson","let","upon",
+            "tremble","fear","left","another","other","by","hunter","thus","afterwards","used","cross","tumbled","also","fell","hence",
             "loaded","would","be","still","become","dampened","wet","anymore" , "an","feeling","den","find","only","hesitation","can","fill",
             "as","about","instead","went","letting","off"
     };
@@ -178,8 +178,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
                 friend_gifview.setImageResource(gif_view);
             }
 
-//            int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
-//            friend_gifview.setImageResource(gif_view);
         }
 
         @Override

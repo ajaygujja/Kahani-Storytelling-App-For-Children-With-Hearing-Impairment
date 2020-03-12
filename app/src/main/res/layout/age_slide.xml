@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:id="@+id/Age_Linear_layout"
+    android:layout_height="match_parent">
+
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/Age_Lottie"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        />
+
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:id="@+id/Age_Selection_Number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:fontFamily="@font/oswald_regular"
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        />
+
+
+    <Button
+        android:background="@drawable/buttonshape"
+        android:id="@+id/Age_Selection_Number_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:textSize="16dp"
+        android:fontFamily="@font/gelasio_regular"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        android:paddingBottom="18dp"
+        android:paddingTop="18dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        />
+
+
+</LinearLayout>

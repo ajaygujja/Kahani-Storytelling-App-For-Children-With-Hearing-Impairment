@@ -4,6 +4,7 @@
     <color name="colorPrimary">#5df2d6</color>
     <color name="colorPrimaryDark">#00bfa5</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black">#000</color>
     <color name="colorTransparent">#cccccc</color>
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="lightgray">#ededed</color>
@@ -13,5 +14,7 @@
     <color name="green">#00bfa5</color>
     <color name="pink">#ff4081</color>
     <color name="white">#fff</color>
+    <color name="red">#fd5e53</color>
+
 
 </resources>

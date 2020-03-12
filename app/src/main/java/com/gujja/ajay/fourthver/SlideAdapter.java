@@ -23,8 +23,8 @@ public class SlideAdapter extends PagerAdapter {
     //List of Images
     public int[] ist_images = {
             R.drawable.hungry_fox_logo,
-            R.drawable.image_2,
-            R.drawable.image_3,
+            R.drawable.lion_logo,
+            R.drawable.donkey_logo,
             R.drawable.image_4,
     };
     // List of Titles

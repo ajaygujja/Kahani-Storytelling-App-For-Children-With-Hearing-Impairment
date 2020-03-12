@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".stories.FourthStory"></activity>
+        <activity
+            android:name=".AgeSelection"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".stories.FourthStory" />
         <activity android:name=".stories.ThirdStory" />
         <activity android:name=".stories.GreedyLion" />
         <activity

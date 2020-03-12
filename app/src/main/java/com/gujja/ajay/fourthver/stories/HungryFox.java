@@ -25,15 +25,13 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     int i = 0;
     int j = 0;
-
     float speed = 0.7f;
     float pitch  = 0.8f;
 
     private TextToSpeech tts;
-
-    TextView textSent, textWord, alphabets;
-    GifImageView signImage;
-    Button buttonspeak, buttonstop;
+    private TextView textSent, textWord, alphabets;
+    private GifImageView signImage;
+    private Button buttonspeak, buttonstop;
 
     String[] arthur = {"Once", "a", "fox", "was", "very", "hungry", " ",
             "It", "looked", "for", "food", "here", "and", "there", " ",
@@ -93,6 +91,9 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
+
+
+
 
 
 

@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/slideImg"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:focusable="true"
-        android:scaleType="fitCenter"
-        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_height="220dp"
         />
 
     <TextView
@@ -23,7 +23,7 @@
         android:text="title"
         android:textSize="33sp"
         android:textStyle="bold"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         />
 
     <TextView
@@ -35,7 +35,7 @@
         android:padding="10dp"
         android:fontFamily="@font/oswald_regular"
         android:text="Description"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textAlignment="center"
         />
 
@@ -48,9 +48,9 @@
         android:elevation="30dp"
         android:textColor="#fff"
         android:background="@drawable/round"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:layout_marginTop="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

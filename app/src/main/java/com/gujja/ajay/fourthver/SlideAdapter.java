@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gujja.ajay.fourthver.stories.FourthStory;
+import com.gujja.ajay.fourthver.stories.GreedyLion;
+import com.gujja.ajay.fourthver.stories.HungryFox;
+import com.gujja.ajay.fourthver.stories.ThirdStory;
+
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -17,7 +22,7 @@ public class SlideAdapter extends PagerAdapter {
 
     //List of Images
     public int[] ist_images = {
-            R.drawable.image_1,
+            R.drawable.hungry_fox_logo,
             R.drawable.image_2,
             R.drawable.image_3,
             R.drawable.image_4,
@@ -27,17 +32,14 @@ public class SlideAdapter extends PagerAdapter {
             "Hungry Fox",
             "Greedy Lion",
             "Foolish Donkey",
-            "Story 4"
+            "Lion and a Mouse "
     };
     // List Of Description
     public String[] ist_desc = {
-            "The hungry fox who got caught in the tree trunk" +
-                    " while WoodCutter was Working.",
-            "Donkey and A Seller." +
-                    "Donkey gets lucky everytime." +
-                    "But this time luck Ran out this Time.",
-            "Description 3",
-            "Description 4",
+            "A hungry fox who got caught in a tree hole and was beaten up by a woodcutter for stealing his lunch.",
+            "A lion who became greedy for food and at the end was left with nothing.",
+            "A donkey who tried to reduce his load by playing tricks and at the end was taught a lesson by his owner while increasing is own suffering.",
+            "A lion who threatened the mouse but was saved by the same mouse during crisis",
     };
 
     public int[] actLayout = {

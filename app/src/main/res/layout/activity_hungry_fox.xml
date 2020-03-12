@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="2dp"
     android:orientation="vertical"
-    tools:context=".HungryFox">
+    tools:context=".stories.HungryFox">
 
 
     <LinearLayout
@@ -25,14 +25,6 @@
             android:textSize="27sp" />
 
 
-        <TextView
-            android:id="@+id/alphbetView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:fontFamily="@font/gelasio_italic"
-            android:gravity="center"
-            android:textSize="25sp"
-            android:layout_weight="10"/>
 
 
         <TextView

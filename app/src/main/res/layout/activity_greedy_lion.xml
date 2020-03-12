@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_margin="2dp"
     android:layout_height="match_parent"
-    tools:context=".HungryFox">
+    tools:context=".stories.HungryFox">
 
 
     <LinearLayout
@@ -52,14 +51,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/GreedyButtonspeak"
+                android:id="@+id/Greedy_Button_speak"
                 android:text="Speak"
                 android:layout_marginRight="10dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Greedybuttonstop"
+                android:id="@+id/Greedy_button_stop"
                 android:layout_marginLeft="10dp"
                 android:text="Stop"
                 />
@@ -72,12 +71,12 @@
             android:layout_height="match_parent">
 
 
-            <VideoView
-                android:id="@+id/GreedyLionVideoView"
-                android:layout_gravity="center"
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/Greedy_Lion_SignImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFF"/>
+                android:layout_gravity="center"
+                android:padding="2dp" />
 
         </LinearLayout>
 

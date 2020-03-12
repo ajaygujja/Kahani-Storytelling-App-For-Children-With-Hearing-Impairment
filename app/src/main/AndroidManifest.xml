@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FourthStory"></activity>
-        <activity android:name=".ThirdStory" />
-        <activity android:name=".GreedyLion" />
+        <activity android:name=".stories.FourthStory"></activity>
+        <activity android:name=".stories.ThirdStory" />
+        <activity android:name=".stories.GreedyLion" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HungryFox" />
+        <activity android:name=".stories.HungryFox" />
     </application>
 
 </manifest>

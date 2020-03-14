@@ -1,4 +1,4 @@
-package com.gujja.ajay.fourthver;
+package com.gujja.ajay.fourthver.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gujja.ajay.fourthver.R;
 import com.gujja.ajay.fourthver.stories.FourthStory;
 import com.gujja.ajay.fourthver.stories.GreedyLion;
 import com.gujja.ajay.fourthver.stories.HungryFox;

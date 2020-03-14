@@ -163,8 +163,8 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         public void onStart(String utteranceId) {
 
             // For Highlighting Spoken Words
-            String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            textWord.setText(Html.fromHtml(Replce));
+            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            textWord.setText(Html.fromHtml(Replace));
 
 
             if(utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")){

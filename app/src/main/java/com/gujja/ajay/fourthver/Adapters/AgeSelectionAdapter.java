@@ -1,4 +1,4 @@
-package com.gujja.ajay.fourthver;
+package com.gujja.ajay.fourthver.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.gujja.ajay.fourthver.HomeActivity;
+import com.gujja.ajay.fourthver.R;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;

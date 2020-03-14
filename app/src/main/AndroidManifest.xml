@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".stories.Honestly"></activity>
+        <activity android:name=".stories.Wise_Owl" />
+        <activity android:name=".stories.Black_Sheep" />
+        <activity android:name=".stories.Scared_Lil_Mouse" />
+        <activity android:name=".stories.Cat_Dog" />
         <activity
             android:name=".AgeSelection"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".stories.FourthStory" />
         <activity android:name=".stories.ThirdStory" />
         <activity android:name=".stories.GreedyLion" />

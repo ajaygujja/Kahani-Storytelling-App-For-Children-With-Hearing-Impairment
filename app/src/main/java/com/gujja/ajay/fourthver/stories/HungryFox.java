@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,23 +20,36 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitListener, Animatable{
+public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitListener, Animatable {
 
     int i = 0;
     int j = 0;
     float speed = 0.7f;
-    float pitch  = 0.8f;
+    float pitch = 0.8f;
+
+
+    @BindView(R.id.textview)
+    TextView textSent;
+    @BindView(R.id.TextWord)
+    TextView textWord;
+    @BindView(R.id.Buttonspeak)
+    Button buttonspeak;
+    @BindView(R.id.buttonstop)
+    Button buttonstop;
+    @BindView(R.id.Button_Layout)
+    LinearLayout ButtonLayout;
+    @BindView(R.id.SignImage)
+    GifImageView signImage;
 
     private TextToSpeech tts;
-    private TextView textSent, textWord, alphabets;
-    private GifImageView signImage;
-    private Button buttonspeak, buttonstop;
 
     String[] arthur = {"Once", "a", "fox", "was", "very", "hungry", " ",
             "It", "looked", "for", "food", "here", "and", "there", " ",
-            "But", "it", "could","not", "get", "any", " ",
+            "But", "it", "could", "not", "get", "any", " ",
             "Atlast", "it", "found", "a", "loaf", "of", "bread", "and", "piece", "of", "meat", "in", "the", "hole", "of", "a", "tree", " ",
             "The", "hungry", "fox", "squeezed", "into", "the", "hole", " ",
             "It", "ate", "all", "the", "food", " ",
@@ -59,12 +73,12 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             "But it couldn't.\nIts tummy was swollen.\n",
             "The woodcutter caught the fox and gave it nice beatings.\n"};
 
-    String [] stopwords = {
-            "the","all","into","loaf","but","for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught","gave",
-            "came","on","become","trick","with","carry","cotton","that","felt","every","stream","lesson","let","upon",
-            "tremble","fear","left","anpther","other","by","hunter","thus","afterwards","used","cross","tumbled","also","fell","hence",
-            "loaded","would","be","still","become","dampened","wet","anymore" , "an","feeling","den","find","only","hesitation","can","fill",
-            "as","about","instead","went","letting","off"
+    String[] stopwords = {
+            "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
+            "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
+            "tremble", "fear", "left", "anpther", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
+            "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
+            "as", "about", "instead", "went", "letting", "off"
     };
 
 
@@ -72,19 +86,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hungry_fox);
-
-        //Initialization of Views
-        textSent = findViewById(R.id.textview);
-        textWord = findViewById(R.id.TextWord);
-        buttonspeak = findViewById(R.id.Buttonspeak);
-        buttonstop = findViewById(R.id.buttonstop);
-        signImage = findViewById(R.id.SignImage);
+        ButterKnife.bind(this);
 
         //Setting Default Text
         textSent.setText(joker[0]);
         textWord.setText(arthur[0]);
-        //signImage.setImageResource(SignLang[1]);
-
 
         // Initialization of Text To Speech
         tts = new TextToSpeech(HungryFox.this, this);
@@ -93,15 +99,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         tts.setOnUtteranceProgressListener(mProgressListener);
 
 
-
-
-
-
         buttonspeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                speak(arthur,i);
+                speak(arthur, i);
 
             }
         });
@@ -144,14 +146,14 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (int k = 0; k < stopwords.length;k++) {
-            if (arthur[i].toLowerCase().equals(stopwords[k])) {
-                char[] alphabet_array = stopwords[k].toCharArray();
+        for (String stopword : stopwords) {
+            if (arthur[i].toLowerCase().equals(stopword)) {
+                char[] alphabet_array = stopword.toCharArray();
 
-                for (int z = 0;z< alphabet_array.length;z++){
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]).toLowerCase());
+                for (char c : alphabet_array) {
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());
                     tts.setSpeechRate(0.3f);
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
+                    tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
             }
         }
@@ -163,7 +165,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     }
 
 
-
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
@@ -171,7 +172,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         }
     }
 
-    private abstract class runnable implements Runnable {
+    private abstract static class runnable implements Runnable {
     }
 
 
@@ -182,20 +183,18 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         public void onStart(String utteranceId) {
 
             // For Highlighting Spoken Words
-            String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            textWord.setText(Html.fromHtml(Replce));
+            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            textWord.setText(Html.fromHtml(Replace));
 
 
             //Setting Gif according to words
-            if(utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")){
-                int ajay = getResources().getIdentifier(utteranceId.toLowerCase() +"1", "raw", getPackageName());
+            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
+                int ajay = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
                 signImage.setImageResource(ajay);
             } else {
                 int ajay = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
                 signImage.setImageResource(ajay);
             }
-
-
 
 
         }
@@ -213,7 +212,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         public void onDone(String utteranceId) {
 
             // For Incrementing Words
-           i = i + 1;
+            i = i + 1;
             speak(arthur, i);
 
             // For Incrementing Sentences
@@ -227,7 +226,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.speedmeter,menu);
+        inflater.inflate(R.menu.speedmeter, menu);
         return true;
     }
 
@@ -235,20 +234,20 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        switch (item.getItemId()){
-            case R.id.Slow :
+        switch (item.getItemId()) {
+            case R.id.Slow:
                 speed = 0.3f;
-                Toast.makeText(this,"Slow is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Slow is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.Normal :
+            case R.id.Normal:
                 speed = 0.7f;
-                Toast.makeText(this,"Normal is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Normal is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.Fast :
+            case R.id.Fast:
                 speed = 1f;
-                Toast.makeText(this,"Fast is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Fast is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

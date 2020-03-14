@@ -26,11 +26,6 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
     int i = 0;
     int j = 0;
-    /*private TextView textSent, textWord;
-    private Button button_speak, button_stop;
-    private GifImageView greedy_lion_gifview;
-    */
-
     float speed = 0.7f;
     float pitch = 0.8f;
     private TextToSpeech tts;
@@ -76,6 +71,8 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
             "as", "about", "instead", "went", "letting", "off", "incredibly", "hot"
     };
+
+
     @BindView(R.id.GreedySent)
     TextView GreedySentence;
     @BindView(R.id.GreedyWord)
@@ -93,13 +90,6 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_greedy_lion);
         ButterKnife.bind(this);
-
-        /*//Initialization of Views
-        textSent = findViewById(R.id.GreedySent);
-        textWord = findViewById(R.id.GreedyWord);
-        button_speak = findViewById(R.id.Greedy_Button_speak);
-        button_stop = findViewById(R.id.Greedy_button_stop);
-        greedy_lion_gifview = findViewById(R.id.Greedy_Lion_SignImage);*/
 
         GreedySentence.setText(Greedy[0]);
         GreedyWord.setText(lion[0]);

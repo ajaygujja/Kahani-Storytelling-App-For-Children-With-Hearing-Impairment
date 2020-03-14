@@ -30,6 +30,8 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     int j = 0;
     float speed = 0.7f;
     float pitch = 0.8f;
+    private TextToSpeech tts;
+
     @BindView(R.id.friend_textview)
     TextView friendSentence;
     @BindView(R.id.friend_TextWord)
@@ -41,13 +43,8 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     @BindView(R.id.friend_SignImage)
     GifImageView friendSignGifs;
 
-    /* private TextView textSent, textWord;
-     private Button button_speak, button_stop;
-     private GifImageView friend_gifview;*/
-    private TextToSpeech tts;
-
-
-    String[] friend_word = {"Once", "upon", "a", "time", "there", "lived", "a", "lion", "in", "a", "forest", " ",
+    String[] friend_word = {
+            "Once", "upon", "a", "time", "there", "lived", "a", "lion", "in", "a", "forest", " ",
             "One", "day", "after", "a", "heavy", "meal", " ",
             "It", "was", "sleeping", "under", "a", "tree", " ",
             "After", "a", "while", "there", "came", "a", "mouse", "and", "it", "started", "to", "play", "on", "the", "lion", " ",
@@ -61,10 +58,10 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             "The", "mouse", "came", "there", "and", "cut", "the", "net", " ",
             "Thus", "it", "escaped", " ",
             "There", "after", "the", "mouse", "and", "the", "lion", "became", "friends", " ",
-            "They", "lived", "happily", "in", "the", "forest", "afterwards"};
-
-
-    String[] friend_sentence = {"Once upon a time there lived a lion in a forest.",
+            "They", "lived", "happily", "in", "the", "forest", "afterwards"
+    };
+    String[] friend_sentence = {
+            "Once upon a time there lived a lion in a forest.",
             "One day after a heavy meal.",
             "It was sleeping under a tree.",
             "After a while, there came a mouse and it started to play on the lion.",
@@ -79,7 +76,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             "Thus it escaped.",
             "There after, the mouse and the lion became friends.",
             "They lived happily in the forest afterwards."};
-
     String[] stopwords = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
             "it", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
@@ -87,88 +83,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
             "as", "about", "instead", "went", "letting", "off"
     };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fourth_story);
-        ButterKnife.bind(this);
-
-        /*//Initialization of Views
-        textSent = findViewById(R.id.friend_textview);
-        textWord = findViewById(R.id.friend_TextWord);
-        button_speak = findViewById(R.id.friend_Button_speak);
-        button_stop = findViewById(R.id.friend_button_stop);
-        friend_gifview = findViewById(R.id.friend_SignImage);*/
-
-
-        //Setting Default Text
-        friendSentence.setText(friend_sentence[0]);
-        friendWord.setText(friend_word[0]);
-
-        // Initialization of Text To Speech
-        tts = new TextToSpeech(FourthStory.this, this);
-
-        // Tracking of Words
-        tts.setOnUtteranceProgressListener(mProgressListener);
-
-
-        friendButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speak(friend_word, i);
-            }
-        });
-
-
-        friendButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
-    }
-
-
-    private void stop() {
-
-        tts.stop();
-        tts.shutdown();
-        friendSentence.setText(friend_sentence[0]);
-        friendWord.setText(friend_word[0]);
-        friendSignGifs.setVisibility(View.INVISIBLE);
-    }
-
-    private void speak(String[] text, int i) {
-
-        tts.setSpeechRate(speed);
-        tts.setPitch(pitch);
-        HashMap<String, String> map = new HashMap<>();
-
-
-        for (int k = 0; k < stopwords.length; k++) {
-            if (friend_word[i].toLowerCase().equals(stopwords[k])) {
-                char[] alphabet_array = stopwords[k].toCharArray();
-
-                for (int z = 0; z < alphabet_array.length; z++) {
-
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
-                    tts.setSpeechRate(0.3f);
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
-                }
-
-            }
-        }
-
-
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, friend_word[i]);
-        tts.speak(friend_word[i], TextToSpeech.QUEUE_ADD, map);
-
-    }
-
-
-    private abstract class runnable implements Runnable {
-    }
 
     //Initialization of Utterance Listener
     UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
@@ -210,6 +124,72 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         }
     };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fourth_story);
+        ButterKnife.bind(this);
+
+        //Setting Default Text
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
+
+        // Initialization of Text To Speech
+        tts = new TextToSpeech(FourthStory.this, this);
+
+        // Tracking of Words
+        tts.setOnUtteranceProgressListener(mProgressListener);
+
+        friendButtonSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak(friend_word, i);
+            }
+        });
+
+        friendButtonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stop();
+            }
+        });
+    }
+
+    private void stop() {
+
+        tts.stop();
+        tts.shutdown();
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
+        friendSignGifs.setVisibility(View.INVISIBLE);
+    }
+
+    private void speak(String[] text, int i) {
+
+        tts.setSpeechRate(speed);
+        tts.setPitch(pitch);
+        HashMap<String, String> map = new HashMap<>();
+
+
+        for (int k = 0; k < stopwords.length; k++) {
+            if (friend_word[i].toLowerCase().equals(stopwords[k])) {
+                char[] alphabet_array = stopwords[k].toCharArray();
+
+                for (int z = 0; z < alphabet_array.length; z++) {
+
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
+                    tts.setSpeechRate(0.3f);
+                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
+                }
+
+            }
+        }
+
+
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, friend_word[i]);
+        tts.speak(friend_word[i], TextToSpeech.QUEUE_ADD, map);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -257,5 +237,8 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
         }
+    }
+
+    private abstract class runnable implements Runnable {
     }
 }

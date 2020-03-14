@@ -28,6 +28,7 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     int j = 0;
     float speed = 0.7f;
     float pitch = 0.8f;
+
     @BindView(R.id.fool_donkey_textview)
     TextView foolDonkeySentence;
     @BindView(R.id.fool_donkey_TextWord)
@@ -38,14 +39,8 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     Button foolDonkeyButtonStop;
     @BindView(R.id.fool_donkey_SignImage)
     GifImageView foolDonkeySignGifs;
-
-    /*private TextView textSentence, textWord;
-    private Button button_speak, button_stop;
-    private GifImageView foolish_donkey_gifview;*/
-    private TextToSpeech tts;
-
-
-    String[] foolish = {"A", "salt", "seller", "used", "to", "carry", "the", "salt", "bag", "on", "his",
+    String[] foolish = {
+            "A", "salt", "seller", "used", "to", "carry", "the", "salt", "bag", "on", "his",
             "donkey", "to", "the", "market", "every", "day", " ",
             "On", "the", "way", "they", "had", "to", "cross", "a", "stream", " ",
             "One", "day", "the", "donkey", "suddenly", "tumbled", "down", "the", "stream",
@@ -58,8 +53,8 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             "Again", "it", "played", "the", "same", "trick", "hoping", "that", "the", "cotton", "bag", "would", "be", "still", "become", "lighter", " ",
             "But", "the", "dampened", "cotton", "became", "very", "heavy", "to", "carry", "and", "the", "donkey", "suffered", " ",
             "It", "learnt", "a", "lesson", " ",
-            "It", "didn't", "play", "the", "trick", "anymore", "after", "that", "day", "and", "the", "seller", "was", "happy"};
-
+            "It", "didn't", "play", "the", "trick", "anymore", "after", "that", "day", "and", "the", "seller", "was", "happy"
+    };
     String[] donkey = {
             "A salt seller used to carry the salt bag on his donkey to the market every day.\n",
             "On the way they had to cross a stream.\n",
@@ -74,8 +69,6 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             "It learnt a lesson.\n",
             "It didn’t play the trick anymore after that day, and the seller was happy."
     };
-
-
     String[] stopwords = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
             "it", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
@@ -83,7 +76,44 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
             "as", "about", "instead", "went", "letting", "off"
     };
+    private TextToSpeech tts;
+    UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+        @Override
+        public void onStart(String utteranceId) {
 
+            // For Highlighting Spoken Words
+            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            foolDonkeyWord.setText(Html.fromHtml(Replace));
+
+
+            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
+                foolDonkeySignGifs.setImageResource(gif_view);
+            } else {
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                foolDonkeySignGifs.setImageResource(gif_view);
+            }
+
+        }
+
+        @Override
+        public void onDone(String utteranceId) {
+            i = i + 1;
+            speak(foolish, i);
+
+
+            if (utteranceId.equals(" ")) {
+                j++;
+                foolDonkeySentence.setText(donkey[j]);
+
+            }
+        }
+
+        @Override
+        public void onError(String utteranceId) {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +121,8 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         setContentView(R.layout.activity_third_story);
         ButterKnife.bind(this);
 
-        /*textSentence = findViewById(R.id.fool_donkey_textview);
-        textWord = findViewById(R.id.fool_donkey_TextWord);
-        button_speak = findViewById(R.id.fool_donkey_Button_speak);
-        button_stop = findViewById(R.id.fool_donkey_button_stop);
-        foolish_donkey_gifview = findViewById(R.id.fool_donkey_SignImage);*/
-
-
         foolDonkeySentence.setText(donkey[0]);
         foolDonkeyWord.setText(foolish[0]);
-
 
         // Initialization of Text To Speech
         tts = new TextToSpeech(ThirdStory.this, this);
@@ -127,7 +149,6 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
 
     }
 
-
     private void stop() {
         tts.stop();
         tts.shutdown();
@@ -139,7 +160,7 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     private void speak(String[] text, int i) {
 
         tts.setSpeechRate(speed);
-        tts.setPitch(1f);
+        tts.setPitch(pitch);
         HashMap<String, String> map = new HashMap<>();
 
 
@@ -162,51 +183,6 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, foolish[i]);
         tts.speak(foolish[i], TextToSpeech.QUEUE_ADD, map);
     }
-
-
-    private abstract class runnable implements Runnable {
-    }
-
-    UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
-        @Override
-        public void onStart(String utteranceId) {
-
-            // For Highlighting Spoken Words
-            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            foolDonkeyWord.setText(Html.fromHtml(Replace));
-
-
-            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
-                foolDonkeySignGifs.setImageResource(gif_view);
-            } else {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
-                foolDonkeySignGifs.setImageResource(gif_view);
-            }
-
-//            int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
-//            foolish_donkey_gifview.setImageResource(gif_view);
-        }
-
-        @Override
-        public void onDone(String utteranceId) {
-            i = i + 1;
-            speak(foolish, i);
-
-
-            if (utteranceId.equals(" ")) {
-                j++;
-                foolDonkeySentence.setText(donkey[j]);
-
-            }
-        }
-
-        @Override
-        public void onError(String utteranceId) {
-
-        }
-    };
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -254,5 +230,8 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
         }
+    }
+
+    private abstract class runnable implements Runnable {
     }
 }

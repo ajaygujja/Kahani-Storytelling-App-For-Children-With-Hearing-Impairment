@@ -98,7 +98,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-
         buttonspeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +106,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
             }
         });
-
 
         buttonstop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,33 +116,12 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     }
 
-    @Override
-    public void start() {
 
-    }
-
-    @Override
-    public void stop() {
-
-        tts.stop();
-        tts.shutdown();
-        textWord.setText(arthur[0]);
-        textSent.setText(joker[0]);
-        signImage.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public boolean isRunning() {
-        return false;
-    }
-
-    private void speak(String[] text, int i) {
-
+    public void speak(String[] text, int i) {
 
         tts.setSpeechRate(speed);  // 0.7f
         tts.setPitch(pitch);
         HashMap<String, String> map = new HashMap<>();
-
 
         for (String stopword : stopwords) {
             if (arthur[i].toLowerCase().equals(stopword)) {
@@ -160,9 +137,32 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, arthur[i]);
         tts.speak(arthur[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
+    }
 
+
+    @Override
+    public void stop() {
+
+        tts.stop();
+        tts.shutdown();
+        textWord.setText(arthur[0]);
+        textSent.setText(joker[0]);
+        signImage.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void start() {
 
     }
+
+
+
+    @Override
+    public boolean isRunning() {
+        return false;
+    }
+
+
 
 
     @Override

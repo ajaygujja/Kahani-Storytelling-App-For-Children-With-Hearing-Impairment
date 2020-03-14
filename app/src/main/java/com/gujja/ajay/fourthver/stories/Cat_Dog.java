@@ -20,7 +20,6 @@ import java.util.Locale;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import pl.droidsonroids.gif.GifImageView;
 
 public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitListener {
@@ -41,6 +40,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
     int j = 0;
     float speed = 0.7f;
     float pitch = 0.8f;
+    private TextToSpeech tts;
 
     String[] cat = {"Once", "upon", "a", "time", "in", "a", "fairy", "tale", "land", "a", "cat", "and", "a", "dog", "were", "friends"," ",
             "One", "night", "the", "cat", "invited", "the", "dog", "for", "a", "party", "at", "his", "house"," ",
@@ -74,7 +74,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
     };
 
 
-    private TextToSpeech tts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,10 +89,25 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
 
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
+
+
+        CatDogButtonSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak(cat,i);
+            }
+        });
+
+        CatDogButtonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak(dog,i);
+            }
+        });
     }
 
 
-    @OnClick(R.id.Cat_Dog_button_stop)
+
     private void stop() {
         tts.stop();
         tts.shutdown();
@@ -101,7 +116,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
         CatDogSignGif.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick (R.id.Cat_Dog_Button_speak)
+
     private void speak(String[] text, int i) {
         tts.setSpeechRate(speed);  // 0.7f
         tts.setPitch(pitch);

@@ -18,81 +18,93 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
 
-public class FourthStory extends AppCompatActivity implements TextToSpeech.OnInitListener{
+public class FourthStory extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
 
     int i = 0;
     int j = 0;
     float speed = 0.7f;
     float pitch = 0.8f;
+    @BindView(R.id.friend_textview)
+    TextView friendSentence;
+    @BindView(R.id.friend_TextWord)
+    TextView friendWord;
+    @BindView(R.id.friend_Button_speak)
+    Button friendButtonSpeak;
+    @BindView(R.id.friend_button_stop)
+    Button friendButtonStop;
+    @BindView(R.id.friend_SignImage)
+    GifImageView friendSignGifs;
 
-    private TextView textSent, textWord;
-    private Button button_speak, button_stop;
-    private GifImageView friend_gifview;
+    /* private TextView textSent, textWord;
+     private Button button_speak, button_stop;
+     private GifImageView friend_gifview;*/
     private TextToSpeech tts;
 
 
-    String[] friend_word = {"Once", "upon", "a", "time", "there", "lived", "a", "lion", "in", "a", "forest"," ",
+    String[] friend_word = {"Once", "upon", "a", "time", "there", "lived", "a", "lion", "in", "a", "forest", " ",
             "One", "day", "after", "a", "heavy", "meal", " ",
-            "It", "was", "sleeping", "under", "a", "tree"," ",
-            "After", "a", "while", "there", "came", "a", "mouse", "and", "it", "started", "to", "play", "on", "the", "lion"," ",
-            "Suddenly", "the", "lion", "got", "up", "with", "anger", "and", "looked", "for", "those", "who", "disturbed", "its", "nice", "sleep"," ",
-            "Then", "it", "saw", "a", "small", "mouse", "standing", "trembling", "with", "fear"," ",
-            "The", "lion", "jumped", "on", "it", "and", "started", "to", "kill", "it"," ",
-            "The", "mouse", "requested", "the", "lion", "to", "forgive", "it"," ",
-            "The", "lion", "felt", "pity", "and", "left", "it"," ",
-            "The", "mouse", "ran", "away"," ",
-            "On", "another", "day", "the", "lion", "was", "caught", "in", "a", "net", "by", "a", "hunter"," ",
-            "The", "mouse", "came", "there", "and", "cut", "the", "net"," ",
-            "Thus", "it", "escaped"," ",
-            "There", "after", "the", "mouse", "and", "the", "lion", "became", "friends"," ",
+            "It", "was", "sleeping", "under", "a", "tree", " ",
+            "After", "a", "while", "there", "came", "a", "mouse", "and", "it", "started", "to", "play", "on", "the", "lion", " ",
+            "Suddenly", "the", "lion", "got", "up", "with", "anger", "and", "looked", "for", "those", "who", "disturbed", "its", "nice", "sleep", " ",
+            "Then", "it", "saw", "a", "small", "mouse", "standing", "trembling", "with", "fear", " ",
+            "The", "lion", "jumped", "on", "it", "and", "started", "to", "kill", "it", " ",
+            "The", "mouse", "requested", "the", "lion", "to", "forgive", "it", " ",
+            "The", "lion", "felt", "pity", "and", "left", "it", " ",
+            "The", "mouse", "ran", "away", " ",
+            "On", "another", "day", "the", "lion", "was", "caught", "in", "a", "net", "by", "a", "hunter", " ",
+            "The", "mouse", "came", "there", "and", "cut", "the", "net", " ",
+            "Thus", "it", "escaped", " ",
+            "There", "after", "the", "mouse", "and", "the", "lion", "became", "friends", " ",
             "They", "lived", "happily", "in", "the", "forest", "afterwards"};
 
 
-
     String[] friend_sentence = {"Once upon a time there lived a lion in a forest.",
-         "One day after a heavy meal.",
-         "It was sleeping under a tree.",
-         "After a while, there came a mouse and it started to play on the lion.",
-         "Suddenly the lion got up with anger and looked for those who disturbed its nice sleep.",
-         "Then it saw a small mouse standing trembling with fear.",
-         "The lion jumped on it and started to kill it.",
-         "The mouse requested the lion to forgive it.",
-         "The lion felt pity and left it.",
-         "The mouse ran away.",
-         "On another day, the lion was caught in a net by a hunter.",
-         "The mouse came there and cut the net.",
-         "Thus it escaped.",
-         "There after, the mouse and the lion became friends.",
-         "They lived happily in the forest afterwards."};
+            "One day after a heavy meal.",
+            "It was sleeping under a tree.",
+            "After a while, there came a mouse and it started to play on the lion.",
+            "Suddenly the lion got up with anger and looked for those who disturbed its nice sleep.",
+            "Then it saw a small mouse standing trembling with fear.",
+            "The lion jumped on it and started to kill it.",
+            "The mouse requested the lion to forgive it.",
+            "The lion felt pity and left it.",
+            "The mouse ran away.",
+            "On another day, the lion was caught in a net by a hunter.",
+            "The mouse came there and cut the net.",
+            "Thus it escaped.",
+            "There after, the mouse and the lion became friends.",
+            "They lived happily in the forest afterwards."};
 
-    String [] stopwords = {
-            "the","all","into","loaf","but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught","gave",
-            "it","came","on","become","trick","with","carry","cotton","that", "felt", "every","stream","lesson","let","upon",
-            "tremble","fear","left","another","other","by","hunter","thus","afterwards","used","cross","tumbled","also","fell","hence",
-            "loaded","would","be","still","become","dampened","wet","anymore" , "an","feeling","den","find","only","hesitation","can","fill",
-            "as","about","instead","went","letting","off"
+    String[] stopwords = {
+            "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
+            "it", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
+            "tremble", "fear", "left", "another", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
+            "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
+            "as", "about", "instead", "went", "letting", "off"
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth_story);
+        ButterKnife.bind(this);
 
-        //Initialization of Views
+        /*//Initialization of Views
         textSent = findViewById(R.id.friend_textview);
         textWord = findViewById(R.id.friend_TextWord);
         button_speak = findViewById(R.id.friend_Button_speak);
         button_stop = findViewById(R.id.friend_button_stop);
-        friend_gifview = findViewById(R.id.friend_SignImage);
+        friend_gifview = findViewById(R.id.friend_SignImage);*/
 
 
         //Setting Default Text
-        textSent.setText(friend_sentence[0]);
-        textWord.setText(friend_word[0]);
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
 
         // Initialization of Text To Speech
         tts = new TextToSpeech(FourthStory.this, this);
@@ -101,15 +113,15 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         tts.setOnUtteranceProgressListener(mProgressListener);
 
 
-        button_speak.setOnClickListener(new View.OnClickListener() {
+        friendButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(friend_word,i);
+                speak(friend_word, i);
             }
         });
 
 
-        button_stop.setOnClickListener(new View.OnClickListener() {
+        friendButtonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stop();
@@ -118,14 +130,13 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     }
 
 
-
-    private void stop(){
+    private void stop() {
 
         tts.stop();
         tts.shutdown();
-        textSent.setText(friend_sentence[0]);
-        textWord.setText(friend_word[0]);
-        friend_gifview.setVisibility(View.INVISIBLE);
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
+        friendSignGifs.setVisibility(View.INVISIBLE);
     }
 
     private void speak(String[] text, int i) {
@@ -135,12 +146,11 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         HashMap<String, String> map = new HashMap<>();
 
 
-
-        for (int k = 0; k < stopwords.length;k++) {
+        for (int k = 0; k < stopwords.length; k++) {
             if (friend_word[i].toLowerCase().equals(stopwords[k])) {
                 char[] alphabet_array = stopwords[k].toCharArray();
 
-                for (int z = 0; z< alphabet_array.length; z++){
+                for (int z = 0; z < alphabet_array.length; z++) {
 
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
                     tts.setSpeechRate(0.3f);
@@ -157,7 +167,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     }
 
 
-
     private abstract class runnable implements Runnable {
     }
 
@@ -168,14 +177,14 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
 
             // For Highlighting Spoken Words
             String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            textWord.setText(Html.fromHtml(Replce));
+            friendWord.setText(Html.fromHtml(Replce));
 
-            if(utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")){
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() +"1", "raw", getPackageName());
-                friend_gifview.setImageResource(gif_view);
+            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
+                friendSignGifs.setImageResource(gif_view);
             } else {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
-                friend_gifview.setImageResource(gif_view);
+                friendSignGifs.setImageResource(gif_view);
             }
 
         }
@@ -187,9 +196,9 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             speak(friend_word, i);
 
 
-            if(utteranceId.equals(" ")){
+            if (utteranceId.equals(" ")) {
                 j++;
-                textSent.setText(friend_sentence[j]);
+                friendSentence.setText(friend_sentence[j]);
 
             }
 
@@ -202,13 +211,10 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     };
 
 
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.speedmeter,menu);
+        inflater.inflate(R.menu.speedmeter, menu);
 
         return true;
     }
@@ -217,20 +223,20 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        switch (item.getItemId()){
-            case R.id.Slow :
+        switch (item.getItemId()) {
+            case R.id.Slow:
                 speed = 0.4f;
-                Toast.makeText(this,"Slow is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Slow is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.Normal :
+            case R.id.Normal:
                 speed = 0.8f;
-                Toast.makeText(this,"Normal is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Normal is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.Fast :
+            case R.id.Fast:
                 speed = 1.2f;
-                Toast.makeText(this,"Fast is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Fast is selected", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
@@ -238,6 +244,7 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         }
 
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

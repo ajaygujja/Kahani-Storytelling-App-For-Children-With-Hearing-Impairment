@@ -85,14 +85,14 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         LilMouseButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                speak(mouseWord,i);
             }
         });
 
         LilMouseButtonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                stop();
             }
         });
 

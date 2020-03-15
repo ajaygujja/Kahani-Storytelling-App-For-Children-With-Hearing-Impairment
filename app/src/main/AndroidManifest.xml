@@ -9,20 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".stories.Honestly"></activity>
+
+        <activity
+            android:name=".Adult_Group"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".Mid_Age_Group"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".stories.Honestly" />
         <activity android:name=".stories.Wise_Owl" />
         <activity android:name=".stories.Black_Sheep" />
         <activity android:name=".stories.Scared_Lil_Mouse" />
         <activity android:name=".stories.Cat_Dog" />
+
         <activity
             android:name=".AgeSelection"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".stories.FourthStory" />
         <activity android:name=".stories.ThirdStory" />
         <activity android:name=".stories.GreedyLion" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Child_Group"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".splashscreen"
             android:theme="@style/AppTheme.NoActionBar">

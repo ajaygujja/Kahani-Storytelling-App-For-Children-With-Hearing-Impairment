@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gujja.ajay.fourthver.HomeActivity;
+import com.gujja.ajay.fourthver.Adult_Group;
+import com.gujja.ajay.fourthver.Child_Group;
+import com.gujja.ajay.fourthver.Mid_Age_Group;
 import com.gujja.ajay.fourthver.R;
 
 import androidx.annotation.NonNull;
@@ -70,15 +72,15 @@ public class AgeSelectionAdapter extends PagerAdapter {
             public void onClick(View v) {
                 Intent i;
                 if (position == 0) {
-                    i = new Intent(context, HomeActivity.class);
+                    i = new Intent(context, Child_Group.class);
                     context.startActivity(i);
                 }
                 if (position == 1) {
-                    i = new Intent(context, HomeActivity.class);
+                    i = new Intent(context, Mid_Age_Group.class);
                     context.startActivity(i);
                 }
                 if (position == 2) {
-                    i = new Intent(context, HomeActivity.class);
+                    i = new Intent(context, Adult_Group.class);
                     context.startActivity(i);
                 }
             }

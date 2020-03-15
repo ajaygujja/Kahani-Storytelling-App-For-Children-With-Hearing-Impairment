@@ -7,16 +7,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gujja.ajay.fourthver.Adapters.SlideAdapter;
+import com.gujja.ajay.fourthver.Adapters.Child_Age_Adapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-public class HomeActivity extends AppCompatActivity  {
+public class Child_Group extends AppCompatActivity  {
 
     private ViewPager viewPager;
     private LinearLayout mDotLayout;
-    private SlideAdapter myadapter;
+    private Child_Age_Adapter myadapter;
     private TextView[] mDots;
     private int currentpage;
     private Button nextbtn,prevbtn;
@@ -24,14 +24,14 @@ public class HomeActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_child_group);
 
         viewPager = findViewById(R.id.ViewPager);
         mDotLayout = findViewById(R.id.layoutdots);
         nextbtn = findViewById(R.id.nextbtn);
         prevbtn = findViewById(R.id.prevbtn);
 
-        myadapter = new SlideAdapter(this);
+        myadapter = new Child_Age_Adapter(this);
         viewPager.setAdapter(myadapter);
 
         addDotIndicator(0);
@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
     public void addDotIndicator(int position){
-        mDots = new TextView[4];
+        mDots = new TextView[3];
         mDotLayout.removeAllViews();
 
         for (int i = 0; i < mDots.length; i++){
@@ -53,10 +53,7 @@ public class HomeActivity extends AppCompatActivity  {
 
         }
 
-        if(mDots.length > 0){
-
             mDots[position].setTextColor(getResources().getColor(R.color.white));
-        }
     }
 
     ViewPager.OnPageChangeListener viewlistner = new ViewPager.OnPageChangeListener() {

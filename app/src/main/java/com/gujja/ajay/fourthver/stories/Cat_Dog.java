@@ -101,7 +101,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
         CatDogButtonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                speak(dog,i);
+                stop();
             }
         });
     }

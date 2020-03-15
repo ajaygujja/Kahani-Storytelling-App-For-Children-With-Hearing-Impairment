@@ -29,8 +29,6 @@ public class AgeSelection extends AppCompatActivity {
         Age_selection_viewPager.setAdapter(Age_selection_adapter);
 
         addDotIndicator(0);
-
-
         Age_selection_viewPager.addOnPageChangeListener(viewlistner);
 
 
@@ -56,22 +54,22 @@ public class AgeSelection extends AppCompatActivity {
         }
     }
 
-        ViewPager.OnPageChangeListener viewlistner = new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    ViewPager.OnPageChangeListener viewlistner = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-            }
+        }
 
-            @Override
-            public void onPageSelected(int position) {
-                addDotIndicator(position);
-            }
+        @Override
+        public void onPageSelected(int position) {
+            addDotIndicator(position);
+        }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
+        @Override
+        public void onPageScrollStateChanged(int state) {
 
-            }
-        };
+        }
+    };
     }
 
 

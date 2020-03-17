@@ -23,8 +23,7 @@ import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
 
-public class FourthStory extends AppCompatActivity implements TextToSpeech.OnInitListener {
-
+public class FourthStory extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
     int i = 0;
     int j = 0;
@@ -140,19 +139,8 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-        friendButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speak(friend_word, i);
-            }
-        });
-
-        friendButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
+        friendButtonSpeak.setOnClickListener(this);
+        friendButtonStop.setOnClickListener(this);
     }
 
     private void stop() {
@@ -236,6 +224,19 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
 
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.friend_Button_speak:
+                speak(friend_word,i);
+                break;
+
+            case  R.id.friend_button_stop:
+                stop();
+                break;
         }
     }
 

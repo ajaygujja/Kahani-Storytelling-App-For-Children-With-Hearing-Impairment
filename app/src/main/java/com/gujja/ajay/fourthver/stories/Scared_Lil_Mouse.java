@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
     @BindView(R.id.Lil_Mouse_textSent)
     TextView LilMouseTextSent;
@@ -82,19 +82,9 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-        LilMouseButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speak(mouseWord,i);
-            }
-        });
-
-        LilMouseButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
+        /* @OnClick Listener */
+        LilMouseButtonSpeak.setOnClickListener(this);
+        LilMouseButtonStop.setOnClickListener(this);
 
     }
 
@@ -210,6 +200,19 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.Lil_Mouse_Button_speak:
+                speak(mouseWord,i);
+                break;
+
+            case  R.id.Lil_Mouse_button_stop:
+                stop();
+                break;
         }
     }
 }

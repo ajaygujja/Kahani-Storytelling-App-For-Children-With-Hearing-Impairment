@@ -42,7 +42,6 @@ public class Mid_Age_Group extends AppCompatActivity {
             mDots[i].setTextSize(35);
             mDots[i].setTextColor(getResources().getColor(R.color.colorTransparent));
             MidAge_Layout_Dots.addView(mDots[i]);
-
         }
 
         mDots[position].setTextColor(getResources().getColor(R.color.white));

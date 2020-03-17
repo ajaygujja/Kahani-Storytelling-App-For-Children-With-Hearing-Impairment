@@ -15,7 +15,6 @@ public class AgeSelection extends AppCompatActivity {
     private ViewPager Age_selection_viewPager;
     private LinearLayout Age_selection_DotLayout;
     private AgeSelectionAdapter Age_selection_adapter;
-    private TextView[] Age_selection_Dots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,28 +35,23 @@ public class AgeSelection extends AppCompatActivity {
 
 
     public void addDotIndicator(int position) {
-        Age_selection_Dots = new TextView[3];
+        TextView[] age_selection_Dots = new TextView[3];
         Age_selection_DotLayout.removeAllViews();
 
-        for (int i = 0; i < Age_selection_Dots.length; i++) {
-            Age_selection_Dots[i] = new TextView(this);
-            Age_selection_Dots[i].setText(Html.fromHtml("&#8226"));
-            Age_selection_Dots[i].setTextSize(35);
-            Age_selection_Dots[i].setTextColor(getResources().getColor(R.color.black));
-            Age_selection_DotLayout.addView(Age_selection_Dots[i]);
-
+        for (int i = 0; i < age_selection_Dots.length; i++) {
+            age_selection_Dots[i] = new TextView(this);
+            age_selection_Dots[i].setText(Html.fromHtml("&#8226"));
+            age_selection_Dots[i].setTextSize(35);
+            age_selection_Dots[i].setTextColor(getResources().getColor(R.color.black));
+            Age_selection_DotLayout.addView(age_selection_Dots[i]);
         }
 
-        if (Age_selection_Dots.length > 0) {
-
-            Age_selection_Dots[position].setTextColor(getResources().getColor(R.color.red));
-        }
+        age_selection_Dots[position].setTextColor(getResources().getColor(R.color.red));
     }
 
     ViewPager.OnPageChangeListener viewlistner = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         }
 
         @Override
@@ -67,7 +61,6 @@ public class AgeSelection extends AppCompatActivity {
 
         @Override
         public void onPageScrollStateChanged(int state) {
-
         }
     };
     }

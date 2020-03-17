@@ -11,7 +11,6 @@ import com.airbnb.lottie.LottieAnimationView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class splashscreen extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 3000;
     LottieAnimationView lottieAnimationView;
 
 
@@ -22,34 +21,25 @@ public class splashscreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
         lottieAnimationView = findViewById(R.id.splashscreen);
 
-        startanimation();
+        start_animation();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent SplashIntent = new Intent(splashscreen.this,AgeSelection.class);
-                startActivity(SplashIntent);
-                finish();
-            }
-        },SPLASH_TIME_OUT);
+        int SPLASH_TIME_OUT = 3000;
+        new Handler().postDelayed(() -> {
+            Intent SplashIntent = new Intent(splashscreen.this, AgeSelection.class);
+            startActivity(SplashIntent);
+            finish();
+        }, SPLASH_TIME_OUT);
     }
 
-    private void startanimation(){
-        ValueAnimator animator = ValueAnimator.ofFloat(0f,1f).setDuration(3000);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                lottieAnimationView.setProgress((float)animation.getAnimatedValue());
-            }
-        });
+    private void start_animation() {
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(3000);
+        animator.addUpdateListener(animation -> lottieAnimationView.setProgress((float) animation.getAnimatedValue()));
 
-        if (lottieAnimationView.getProgress() == 0f){
+        if (lottieAnimationView.getProgress() == 0f) {
             animator.start();
-        }else {
+        } else {
             lottieAnimationView.setProgress(0f);
         }
     }
-
-
 
 }

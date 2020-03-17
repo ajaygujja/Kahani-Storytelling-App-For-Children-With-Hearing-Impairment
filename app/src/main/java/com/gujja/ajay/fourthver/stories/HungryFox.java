@@ -24,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitListener, Animatable {
+public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitListener, Animatable, View.OnClickListener {
 
     int i = 0;
     int j = 0;
@@ -147,21 +147,8 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-        buttonspeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                speak(arthur, i);
-
-            }
-        });
-
-        buttonstop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
+        buttonspeak.setOnClickListener(this);
+        buttonstop.setOnClickListener(this);
 
     }
 
@@ -251,6 +238,19 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     public void onBackPressed() {
         super.onBackPressed();
         this.finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.Buttonspeak:
+                speak(arthur,i);
+                break;
+
+            case  R.id.buttonstop:
+                stop();
+                break;
+        }
     }
 
     private abstract static class runnable implements Runnable {

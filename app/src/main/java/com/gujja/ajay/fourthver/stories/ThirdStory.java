@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
     int i = 0;
     int j = 0;
@@ -130,22 +130,9 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-
-        foolDonkeyButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speak(foolish, i);
-            }
-        });
-
-
-        foolDonkeyButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
-
+        /* @OnClick Listener */
+        foolDonkeyButtonSpeak.setOnClickListener(this);
+        foolDonkeyButtonStop.setOnClickListener(this);
 
     }
 
@@ -229,6 +216,19 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
 
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.fool_donkey_Button_speak:
+                speak(foolish,i);
+                break;
+
+            case  R.id.fool_donkey_button_stop:
+                stop();
+                break;
         }
     }
 

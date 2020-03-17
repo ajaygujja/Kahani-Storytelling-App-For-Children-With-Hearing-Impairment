@@ -20,7 +20,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class AgeSelectionAdapter extends PagerAdapter {
 
-    public int[] first_gif = {
+    private int[] first_gif = {
 
             R.drawable.jumping_girl_animation,
             R.drawable.hand_waving_animation,
@@ -28,15 +28,14 @@ public class AgeSelectionAdapter extends PagerAdapter {
     };
 
 
-    public  String[] first_agetext = {
+    private String[] first_agetext = {
             "1 - 3 Age",
             "4 - 8 Age",
             "9 - 12 Age"
     };
 
 
-    Context context;
-    LayoutInflater inflater;
+    private Context context;
 
     public AgeSelectionAdapter(Context context) {
         this.context = context;
@@ -49,13 +48,14 @@ public class AgeSelectionAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view == (LinearLayout) object);
+        return (view == object);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container,final int position) {
-        inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        assert inflater != null;
         View view = inflater.inflate(R.layout.age_slide, container, false);
 
         LinearLayout layoutslide = view.findViewById(R.id.Age_Linear_layout);
@@ -67,22 +67,19 @@ public class AgeSelectionAdapter extends PagerAdapter {
         gifImageView.setImageResource(first_gif[position]);
         textView.setText(first_agetext[position]);
 
-        selectbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i;
-                if (position == 0) {
-                    i = new Intent(context, Child_Group.class);
-                    context.startActivity(i);
-                }
-                if (position == 1) {
-                    i = new Intent(context, Mid_Age_Group.class);
-                    context.startActivity(i);
-                }
-                if (position == 2) {
-                    i = new Intent(context, Adult_Group.class);
-                    context.startActivity(i);
-                }
+        selectbtn.setOnClickListener(v -> {
+            Intent i;
+            if (position == 0) {
+                i = new Intent(context, Child_Group.class);
+                context.startActivity(i);
+            }
+            if (position == 1) {
+                i = new Intent(context, Mid_Age_Group.class);
+                context.startActivity(i);
+            }
+            if (position == 2) {
+                i = new Intent(context, Adult_Group.class);
+                context.startActivity(i);
             }
         });
         container.addView(view);

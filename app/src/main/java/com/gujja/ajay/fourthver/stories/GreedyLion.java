@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
     int i = 0;
     int j = 0;
@@ -100,7 +100,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-        GreedyButtonSpeak.setOnClickListener(new View.OnClickListener() {
+      /*  GreedyButtonSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new Thread() {
@@ -123,7 +123,10 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             public void onClick(View v) {
                 stop();
             }
-        });
+        });*/
+      GreedyButtonSpeak.setOnClickListener(this);
+      GreedyButtonStop.setOnClickListener(this);
+
     }
 
     private void stop() {
@@ -178,6 +181,19 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
             tts.setLanguage(Locale.ENGLISH);
         }
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.Greedy_Button_speak:
+                speak(lion,i);
+                break;
+
+            case  R.id.Greedy_button_stop:
+                stop();
+                break;
+        }
     }
 
     private abstract class runnable implements Runnable {

@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
 
     @BindView(R.id.Cat_Dog_textSent)
@@ -90,20 +90,8 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-
-        CatDogButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                speak(cat,i);
-            }
-        });
-
-        CatDogButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });
+        CatDogButtonSpeak.setOnClickListener(this);
+        CatDogButtonStop.setOnClickListener(this);
     }
 
 
@@ -223,6 +211,19 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.Cat_Dog_Button_speak:
+                speak(cat,i);
+                break;
+
+            case  R.id.Cat_Dog_button_stop:
+                stop();
+                break;
         }
     }
 }

@@ -27,28 +27,6 @@
         android:layout_marginBottom="20dp"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/prevbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:background="@drawable/btncolor"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
-        android:drawableLeft="@drawable/ic_arrow_back"
 
-       />
-    <Button
-        android:id="@+id/nextbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:background="@drawable/btncolor"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
-        android:drawableRight="@drawable/ic_arrow_forward"
-        />
 
 </RelativeLayout>

@@ -118,7 +118,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, mouseWord[i]);
         tts.speak(mouseWord[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
 
-
     }
 
     UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {

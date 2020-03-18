@@ -132,12 +132,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     private void stop() {
         new Thread() {
             public void run() {
-                GreedyLion.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                GreedyLion.this.runOnUiThread(() -> Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show());
             }
         }.start();
         tts.stop();
@@ -155,15 +150,15 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (int k = 0; k < stopwords.length; k++) {
-            if (lion[i].toLowerCase().equals(stopwords[k])) {
-                char[] alphabet_array = stopwords[k].toCharArray();
+        for (String stopword : stopwords) {
+            if (lion[i].toLowerCase().equals(stopword)) {
+                char[] alphabet_array = stopword.toCharArray();
 
-                for (int z = 0; z < alphabet_array.length; z++) {
+                for (char c : alphabet_array) {
 
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c));
                     tts.setSpeechRate(0.3f);
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
+                    tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
 
             }
@@ -200,7 +195,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     }
 
     //Initialization of Utterance Listener
-    UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+    final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
         @Override
         public void onStart(final String utteranceId) {
             new Thread() {

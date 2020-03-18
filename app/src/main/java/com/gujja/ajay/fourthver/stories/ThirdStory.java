@@ -151,16 +151,16 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (int k = 0; k < stopwords.length; k++) {
-            if (foolish[i].toLowerCase().equals(stopwords[k])) {
-                char[] alphabet_array = stopwords[k].toCharArray();
+        for (String stopword : stopwords) {
+            if (foolish[i].toLowerCase().equals(stopword)) {
+                char[] alphabet_array = stopword.toCharArray();
 
-                for (int z = 0; z < alphabet_array.length; z++) {
+                for (char c : alphabet_array) {
 
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c));
 
                     tts.setSpeechRate(0.3f);
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
+                    tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
 
             }
@@ -232,6 +232,4 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         }
     }
 
-    private abstract class runnable implements Runnable {
-    }
 }

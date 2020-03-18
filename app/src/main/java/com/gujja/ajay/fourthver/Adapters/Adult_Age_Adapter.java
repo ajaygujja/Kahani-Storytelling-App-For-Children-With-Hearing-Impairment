@@ -92,24 +92,22 @@ public class Adult_Age_Adapter extends PagerAdapter {
         txttitle.setText(ist_title[position]);
         txtDesc.setText(ist_desc[position]);
 
-        readbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i;
-                if (position == 0) {
-                    i = new Intent(context, ThirdStory.class);
-                    context.startActivity(i);
-                }
-                if (position == 1) {
-                    i = new Intent(context, GreedyLion.class);
-                    context.startActivity(i);
-                }
-                if (position == 2) {
-                    i = new Intent(context, Honestly.class);
-                    context.startActivity(i);
-                }
 
+        readbtn.setOnClickListener(v -> {
+            Intent i;
+            if (position == 0) {
+                i = new Intent(context, ThirdStory.class);
+                context.startActivity(i);
             }
+            if (position == 1) {
+                i = new Intent(context, GreedyLion.class);
+                context.startActivity(i);
+            }
+            if (position == 2) {
+                i = new Intent(context, Honestly.class);
+                context.startActivity(i);
+            }
+
         });
 
         container.addView(view);

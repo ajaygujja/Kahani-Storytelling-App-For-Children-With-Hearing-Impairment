@@ -86,14 +86,12 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     //Initialization of Utterance Listener
     final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
-
         @Override
         public void onStart(String utteranceId) {
 
             // For Highlighting Spoken Words
             String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             textWord.setText(Html.fromHtml(Replace));
-
 
             //Setting Gif according to words
             if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
@@ -104,7 +102,9 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                 signImage.setImageResource(ajay);
             }
 
-
+            if(isRunning()){
+                tts.playSilentUtterance(2000,TextToSpeech.QUEUE_ADD,utteranceId);
+            }
         }
 
         @Override
@@ -118,6 +118,10 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         @Override
         public void onDone(String utteranceId) {
+
+
+
+
 
             // For Incrementing Words
             i = i + 1;
@@ -210,7 +214,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
 
         switch (item.getItemId()) {
             case R.id.Slow:

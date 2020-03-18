@@ -30,8 +30,8 @@ public class Mid_Age_Adapter extends PagerAdapter {
     //List of Images
     private int[] ist_images = {
             R.drawable.hungry_fox_logo,
-            R.drawable.lion_logo,
-            R.drawable.donkey_logo
+            R.drawable.sheep_logo,
+            R.drawable.owl_logo
 
     };
     // List of Titles

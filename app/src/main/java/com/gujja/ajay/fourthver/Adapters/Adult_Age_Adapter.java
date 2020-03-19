@@ -31,7 +31,7 @@ public class Adult_Age_Adapter extends PagerAdapter {
     private int[] ist_images = {
             R.drawable.donkey_logo,
             R.drawable.lion_logo,
-            R.drawable.donkey_logo
+            R.drawable.honesty_logo
 
     };
     // List of Titles
@@ -118,7 +118,7 @@ public class Adult_Age_Adapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((CoordinatorLayout) object);
     }
 
 

@@ -31,7 +31,7 @@ public class Child_Age_Adapter extends PagerAdapter {
     private int[] ist_images = {
             R.drawable.cat_dog_logo, //
             R.drawable.mouse_logo,
-            R.drawable.donkey_logo
+            R.drawable.lion_mouse_logo
     };
     // List of Titles
     private String[] ist_title = {

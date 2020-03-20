@@ -21,7 +21,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class Child_Age_Adapter extends PagerAdapter {
 
-    private int[] gifsslide = {
+    private int[] gif_slide = {
             R.drawable.hungry_fox,
             R.drawable.hungry_fox,
             R.drawable.hungry_fox
@@ -85,38 +85,35 @@ public class Child_Age_Adapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.slide, container, false);
 
 
-        CoordinatorLayout layoutslide = view.findViewById(R.id.slideLinearLayout);
-        ImageView imgslide = view.findViewById(R.id.slideImg);
+        CoordinatorLayout layout_slide = view.findViewById(R.id.slideLinearLayout);
+        ImageView img_slide = view.findViewById(R.id.slideImg);
         GifImageView gifImageView = view.findViewById(R.id.SlideGif);
-        TextView txttitle = view.findViewById(R.id.TxtTitle);
-        TextView txtDesc = view.findViewById(R.id.textDesc);
-        Button readbtn = view.findViewById(R.id.btnOrder);
+        TextView txt_title = view.findViewById(R.id.TxtTitle);
+        TextView txt_Desc = view.findViewById(R.id.textDesc);
+        Button read_btn = view.findViewById(R.id.btnOrder);
 
-        layoutslide.setBackgroundResource(ist_back[position]);
-        gifImageView.setBackgroundResource(gifsslide[position]);
-        imgslide.setImageResource(ist_images[position]);
-        txttitle.setText(ist_title[position]);
-        txtDesc.setText(ist_desc[position]);
+        layout_slide.setBackgroundResource(ist_back[position]);
+        gifImageView.setBackgroundResource(gif_slide[position]);
+        img_slide.setImageResource(ist_images[position]);
+        txt_title.setText(ist_title[position]);
+        txt_Desc.setText(ist_desc[position]);
 
-        readbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i;
-                if (position == 0) {
-                    i = new Intent(context, Cat_Dog.class);
-                    context.startActivity(i);
-                }
-                if (position == 1) {
-                    i = new Intent(context, Scared_Lil_Mouse.class);
-                    context.startActivity(i);
-                }
-
-                if (position == 2) {
-                    i = new Intent(context, FourthStory.class);
-                    context.startActivity(i);
-                }
-
+        read_btn.setOnClickListener(v -> {
+            Intent i;
+            if (position == 0) {
+                i = new Intent(context, Cat_Dog.class);
+                context.startActivity(i);
             }
+            if (position == 1) {
+                i = new Intent(context, Scared_Lil_Mouse.class);
+                context.startActivity(i);
+            }
+
+            if (position == 2) {
+                i = new Intent(context, FourthStory.class);
+                context.startActivity(i);
+            }
+
         });
 
         container.addView(view);

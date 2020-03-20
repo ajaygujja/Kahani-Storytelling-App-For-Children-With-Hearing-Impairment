@@ -22,30 +22,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:padding="15dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="15dp">
 
 
         <TextView
             android:id="@+id/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
 
+            android:layout_marginEnd="5dp"
             android:fontFamily="@font/gelasio_regular"
-            android:text="KAHANI"
+            android:text="@string/kahani"
             android:textColor="#1b262c"
             android:textSize="35sp"
-            android:layout_marginRight="5dp"
             android:textStyle="bold" />
 
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-
-            android:layout_alignRight="@id/Title"
-            android:layout_alignParentBottom="true"
-
             android:src="@drawable/ear" />
 
     </LinearLayout>

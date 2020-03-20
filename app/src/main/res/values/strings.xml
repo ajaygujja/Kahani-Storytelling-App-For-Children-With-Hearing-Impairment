@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kahani</string>
+    <string name="kahani">KAHANI</string>
+    <string name="select">Select</string>
+    <string name="speak">Speak</string>
+    <string name="stop">Stop</string>
 </resources>

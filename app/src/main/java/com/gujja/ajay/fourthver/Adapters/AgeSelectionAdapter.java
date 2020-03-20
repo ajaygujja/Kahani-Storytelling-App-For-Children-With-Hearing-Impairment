@@ -58,16 +58,16 @@ public class AgeSelectionAdapter extends PagerAdapter {
         assert inflater != null;
         View view = inflater.inflate(R.layout.age_slide, container, false);
 
-        LinearLayout layoutslide = view.findViewById(R.id.Age_Linear_layout);
+        LinearLayout layout_slide = view.findViewById(R.id.Age_Linear_layout);
         GifImageView gifImageView = view.findViewById(R.id.Age_Lottie);
         TextView textView = view.findViewById(R.id.Age_Selection_Number);
-        Button selectbtn = view.findViewById(R.id.Age_Selection_Number_Btn);
+        Button select_btn = view.findViewById(R.id.Age_Selection_Number_Btn);
 
 
         gifImageView.setImageResource(first_gif[position]);
         textView.setText(first_agetext[position]);
 
-        selectbtn.setOnClickListener(v -> {
+        select_btn.setOnClickListener(v -> {
             Intent i;
             if (position == 0) {
                 i = new Intent(context, Child_Group.class);

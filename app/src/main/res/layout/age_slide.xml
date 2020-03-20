@@ -12,7 +12,6 @@
         android:id="@+id/Age_Lottie"
         android:layout_width="200dp"
         android:layout_height="250dp"
-        android:layout_centerInParent="true"
         android:foregroundGravity="center"
         android:scaleType="centerCrop"
         />
@@ -36,8 +35,8 @@
         android:id="@+id/Age_Selection_Number_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select"
-        android:textSize="16dp"
+        android:text="@string/select"
+        android:textSize="16sp"
         android:fontFamily="@font/gelasio_regular"
         android:paddingRight="25dp"
         android:paddingLeft="25dp"

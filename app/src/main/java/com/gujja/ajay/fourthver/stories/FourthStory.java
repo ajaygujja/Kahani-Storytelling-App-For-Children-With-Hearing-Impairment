@@ -159,15 +159,15 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (int k = 0; k < stopwords.length; k++) {
-            if (friend_word[i].toLowerCase().equals(stopwords[k])) {
-                char[] alphabet_array = stopwords[k].toCharArray();
+        for (String stopword : stopwords) {
+            if (friend_word[i].toLowerCase().equals(stopword)) {
+                char[] alphabet_array = stopword.toCharArray();
 
-                for (int z = 0; z < alphabet_array.length; z++) {
+                for (char c : alphabet_array) {
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c));
+                    tts.setSpeechRate(0.5f);
+                    tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
 
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(alphabet_array[z]));
-                    tts.setSpeechRate(0.3f);
-                    tts.speak(String.valueOf(alphabet_array[z]), TextToSpeech.QUEUE_ADD, map);
                 }
 
             }
@@ -178,6 +178,7 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         tts.speak(friend_word[i], TextToSpeech.QUEUE_ADD, map);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

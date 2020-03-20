@@ -117,7 +117,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
 
                 for (char c : alphabet_array) {
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());
-                    tts.setSpeechRate(0.3f);
+                    tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
             }

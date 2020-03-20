@@ -103,9 +103,9 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (String stopword : stopwords) {
-            if (mouseWord[i].toLowerCase().equals(stopword)) {
-                char[] alphabet_array = stopword.toCharArray();
+        for (String s : stopwords) {
+            if (mouseWord[i].toLowerCase().equals(s)) {
+                char[] alphabet_array = s.toCharArray();
 
                 for (char c : alphabet_array) {
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());

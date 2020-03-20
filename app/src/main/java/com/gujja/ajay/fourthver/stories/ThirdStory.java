@@ -159,7 +159,7 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
 
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c));
 
-                    tts.setSpeechRate(0.3f);
+                    tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
 

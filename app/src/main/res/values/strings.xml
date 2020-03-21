@@ -4,4 +4,6 @@
     <string name="select">Select</string>
     <string name="speak">Speak</string>
     <string name="stop">Stop</string>
+    <string name="read_now">Read Now!</string>
+    <string name="description">Description</string>
 </resources>

@@ -4,34 +4,29 @@
     android:id="@+id/slideLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcfcfc">
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:fitsSystemWindows="true"
-        >
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingtoolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
             android:fitsSystemWindows="true"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            >
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll">
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/SlideGif"
-                app:layout_collapseMode="parallax"
-
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"/>
-
-
+                app:layout_collapseMode="parallax" />
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -41,73 +36,68 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+
+        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_marginTop="50dp"
                 android:id="@+id/slideImg"
                 android:layout_width="220dp"
-                android:focusable="true"
-                android:scaleType="centerCrop"
                 android:layout_height="220dp"
-                />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:focusable="true"
+                android:scaleType="centerCrop" />
 
             <TextView
-                android:fontFamily="@font/oswald_bold"
-                android:textColor="#fff"
                 android:id="@+id/TxtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="title"
-                android:gravity="center_horizontal"
-                android:textSize="33sp"
-                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                />
+                android:fontFamily="@font/oswald_bold"
+                android:gravity="center_horizontal"
+                android:text="title"
+                android:textColor="#fff"
+                android:textSize="33sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:textColor="#000"
                 android:id="@+id/textDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/oswald_regular"
-                android:text="Description"
-                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:text="@string/description"
                 android:textAlignment="center"
-                />
+                android:textColor="#000"
+                android:textSize="20sp" />
 
 
             <Button
                 android:id="@+id/btnOrder"
-                android:text="Read Now!"
-                android:clickable="true"
-                android:focusable="true"
-                android:elevation="30dp"
-                android:textColor="#fff"
-                android:background="@drawable/round"
-                android:paddingStart="30dp"
-                android:paddingEnd="20dp"
-                android:layout_marginTop="40dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/round"
+                android:gravity="end"
+                android:padding="20dp"
+                android:text="@string/read_now"
+                android:textAlignment="gravity"
+                android:textColor="#fff" />
 
 
         </LinearLayout>
-
-
 
     </androidx.core.widget.NestedScrollView>
 

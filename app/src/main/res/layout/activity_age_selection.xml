@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:textColor="#272343"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/gelasio_bolditalic"
         android:gravity="center_horizontal"
         android:text="What's your Age"/>

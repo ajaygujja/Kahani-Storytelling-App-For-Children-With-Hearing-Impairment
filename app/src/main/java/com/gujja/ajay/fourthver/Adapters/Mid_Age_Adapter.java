@@ -49,9 +49,9 @@ public class Mid_Age_Adapter extends PagerAdapter {
 
     //List of Background Color
     private int[] ist_back = {
-            R.drawable.gradient4,
-            R.drawable.gradient1,
-            R.drawable.grdient3
+            R.drawable.greedy_lion_gradient,
+            R.drawable.black_sheep_gradient,
+            R.drawable.owl_gradient
     };
 
     private Context context;

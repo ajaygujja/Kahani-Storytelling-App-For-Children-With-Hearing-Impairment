@@ -48,9 +48,9 @@ public class Adult_Age_Adapter extends PagerAdapter {
 
     //List of Background Color
     private int[] ist_back = {
-            R.drawable.gradient4,
-            R.drawable.gradient1,
-            R.drawable.grdient3
+            R.drawable.foolish_donky_gradient,
+            R.drawable.greedy_lion_gradient,
+            R.drawable.honesty_gradient
     };
 
     private Context context;

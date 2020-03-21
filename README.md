@@ -1,20 +1,20 @@
 # Storytelling App For Children With Hearing Impairment Using Natural Language Processing 
 
-This project is based on an app which narrates children’s stories to hearing impaired children by taking in stories in form of text as input and giving images of sign language gestures and speech as output. 
+This project is based on an app which narrates children’s stories to hearing impaired children by taking in stories in form of text as input and giving images of **Sign language** gestures and speech as output. 
 
 ## Getting Started
 Git clone or Download the Zip and unzip it.
 
-### Features
+## Features
 * Productive & Interesting Stories in Sign Language 
 * Age Wise Stories for Better Understanding 
 * Speech Output because Target audience is not limited to children with hearing impairment
 
 
-### And coding style
+## Coding Style
  We have used
-*  Java For Android Application
-* Python for Natural Language Processing 
+*  **Java** For Android Application
+* **Python** for Natural Language Processing 
 
 
 ## Built With

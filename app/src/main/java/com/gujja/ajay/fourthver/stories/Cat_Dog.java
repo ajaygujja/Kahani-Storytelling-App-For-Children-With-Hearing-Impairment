@@ -124,7 +124,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
         }
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, cat[i]);
-        tts.speak(cat[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
+        tts.speak(cat[i], TextToSpeech.QUEUE_ADD, map);
 
 
     }
@@ -172,7 +172,6 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.speedmeter,menu);
-
         return true;
     }
 

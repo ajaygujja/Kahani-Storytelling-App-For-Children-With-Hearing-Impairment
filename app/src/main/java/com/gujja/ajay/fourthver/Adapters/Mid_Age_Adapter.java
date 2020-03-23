@@ -22,9 +22,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Mid_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox
+            R.raw.hungry_fox,
+            R.raw.hungry_fox,
+            R.raw.hungry_fox
     };
 
     //List of Images
@@ -32,7 +32,6 @@ public class Mid_Age_Adapter extends PagerAdapter {
             R.drawable.hungry_fox_logo,
             R.drawable.sheep_logo,
             R.drawable.owl_logo
-
     };
     // List of Titles
     private String[] ist_title = {
@@ -68,7 +67,6 @@ public class Mid_Age_Adapter extends PagerAdapter {
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return  (view == object);
     }
-
 
     @NonNull
     @Override

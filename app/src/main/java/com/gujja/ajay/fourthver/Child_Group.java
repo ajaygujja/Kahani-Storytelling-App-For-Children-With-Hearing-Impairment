@@ -41,10 +41,10 @@ public class Child_Group extends AppCompatActivity  {
             mDots[i] = new TextView(this);
             mDots[i].setText(Html.fromHtml("&#8226"));
             mDots[i].setTextSize(35);
-            mDots[i].setTextColor(getResources().getColor(R.color.colorTransparent));
+            mDots[i].setTextColor(getResources().getColor(R.color.white));
             mDotLayout.addView(mDots[i]);
         }
-            mDots[position].setTextColor(getResources().getColor(R.color.white));
+            mDots[position].setTextColor(getResources().getColor(R.color.black));
     }
 
     ViewPager.OnPageChangeListener viewlistner = new ViewPager.OnPageChangeListener() {

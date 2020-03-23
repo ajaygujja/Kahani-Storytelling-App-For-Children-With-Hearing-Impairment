@@ -6,4 +6,6 @@
     <string name="stop">Stop</string>
     <string name="read_now">Read Now!</string>
     <string name="description">Description</string>
+    <string name="what_s_your_age">What\'s your Age</string>
+    <string name="title">title</string>
 </resources>

@@ -62,7 +62,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
     String[] stopwords = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
             "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
-            "tremble", "fear", "left", "anpther", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
+            "tremble", "fear", "left", "another", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
             "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
             "as", "about", "instead", "went", "letting", "off"
     };
@@ -160,7 +160,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.speedmeter,menu);
-
         return true;
     }
 

@@ -17,7 +17,7 @@
         android:layout_marginTop="35dp"
         android:fontFamily="@font/gelasio_bolditalic"
         android:gravity="center_horizontal"
-        android:text="What's your Age"/>
+        android:text="@string/what_s_your_age"/>
 
     <androidx.viewpager.widget.ViewPager
         android:foregroundGravity="center"
@@ -31,12 +31,22 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/Age_selection_layout_dots"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content"/>
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/nxtbtn_red"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin= "20dp"
+        android:src="@drawable/ic_arrow_forward" />
 
 </RelativeLayout>

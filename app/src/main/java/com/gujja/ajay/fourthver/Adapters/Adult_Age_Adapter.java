@@ -22,9 +22,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Adult_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox
+            R.raw.hungry_fox,
+            R.raw.hungry_fox,
+            R.raw.hungry_fox
     };
     //List of Images
     private int[] ist_images = {

@@ -22,9 +22,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Child_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox,
-            R.drawable.hungry_fox
+            R.raw.hungry_fox,
+            R.raw.hungry_fox,
+            R.raw.hungry_fox
     };
 
     //List of Images
@@ -46,13 +46,6 @@ public class Child_Age_Adapter extends PagerAdapter {
             "A lion who threatened the mouse but was saved by the same mouse during crisis",
     };
 
-    public int[] actLayout = {
-            R.layout.activity_hungry_fox,
-            R.layout.activity_greedy_lion,
-            R.layout.activity_third_story,
-            R.layout.activity_fourth_story,
-
-    };
 
     //List of Background Color
     private int[] ist_back = {

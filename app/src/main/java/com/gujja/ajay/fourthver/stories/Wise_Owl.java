@@ -111,11 +111,11 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
 
 
         for (String s : stop_words) {
-            if (words[i].toLowerCase().equals(s)) {
+            if (words[i].toLowerCase(Locale.getDefault()).equals(s)) {
                 char[] alphabet_array = s.toCharArray();
 
                 for (char c : alphabet_array) {
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase(Locale.getDefault()));
                     tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
@@ -123,7 +123,7 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
         }
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, words[i]);
-        tts.speak(words[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
+        tts.speak(words[i].toLowerCase(Locale.getDefault()), TextToSpeech.QUEUE_ADD, map);
 
     }
 
@@ -134,11 +134,11 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
             String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             owl_text_Word.setText(Html.fromHtml(Replace));
 
-            if(utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")){
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() +"1", "raw", getPackageName());
+            if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")){
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) +"1", "raw", getPackageName());
                 owlSignGif.setImageResource(gif_view);
             } else {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 owlSignGif.setImageResource(gif_view);
             }
         }

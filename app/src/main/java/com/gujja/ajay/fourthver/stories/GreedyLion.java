@@ -151,7 +151,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
 
         for (String stopword : stopwords) {
-            if (lion[i].toLowerCase().equals(stopword)) {
+            if (lion[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
 
                 for (char c : alphabet_array) {
@@ -209,11 +209,11 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
                             GreedyWord.setText(Html.fromHtml(Replce));
 
 
-                            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
-                                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
+                            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+                                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                                 GreedyLionSignGif.setImageResource(gif_view);
                             } else {
-                                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                                 GreedyLionSignGif.setImageResource(gif_view);
                             }
 

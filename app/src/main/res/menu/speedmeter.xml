@@ -4,7 +4,7 @@
 
 
     <item android:id="@+id/item1"
-        android:title="Speed"
+        android:title="@string/speed"
         android:icon="@drawable/ic_speed"
         app:showAsAction="always"
 
@@ -15,15 +15,15 @@
 
             <item
                 android:id="@+id/Slow"
-                android:title="Slow"/>
+                android:title="@string/slow"/>
 
             <item
                 android:id="@+id/Normal"
-                android:title="Normal"/>
+                android:title="@string/normal"/>
 
             <item
                 android:id="@+id/Fast"
-                android:title="Fast"/>
+                android:title="@string/fast"/>
 
         </menu>
 

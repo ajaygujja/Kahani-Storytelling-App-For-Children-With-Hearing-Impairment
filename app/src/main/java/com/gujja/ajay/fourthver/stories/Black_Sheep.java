@@ -121,11 +121,11 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
 
 
         for (String s : stop_words) {
-            if (sheep_words[i].toLowerCase(Locale.ROOT).equals(s)) {
+            if (sheep_words[i].toLowerCase(Locale.getDefault()).equals(s)) {
                 char[] alphabet_array = s.toCharArray();
 
                 for (char c : alphabet_array) {
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase(Locale.ROOT));
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase(Locale.getDefault()));
                     tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }

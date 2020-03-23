@@ -104,11 +104,11 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
 
         for (String s : stopwords) {
-            if (mouseWord[i].toLowerCase().equals(s)) {
+            if (mouseWord[i].toLowerCase(Locale.getDefault()).equals(s)) {
                 char[] alphabet_array = s.toCharArray();
 
                 for (char c : alphabet_array) {
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase(Locale.getDefault()));
                     tts.setSpeechRate(0.3f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
@@ -116,7 +116,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         }
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, mouseWord[i]);
-        tts.speak(mouseWord[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
+        tts.speak(mouseWord[i].toLowerCase(Locale.getDefault()), TextToSpeech.QUEUE_ADD, map);
 
     }
 
@@ -128,11 +128,11 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
             LilMouseTextWord.setText(Html.fromHtml(Replace));
 
 
-            if(utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")){
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() +"1", "raw", getPackageName());
+            if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")){
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) +"1", "raw", getPackageName());
                 LilMouseSignGif.setImageResource(gif_view);
             } else {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 LilMouseSignGif.setImageResource(gif_view);
             }
         }

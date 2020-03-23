@@ -94,11 +94,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             textWord.setText(Html.fromHtml(Replace));
 
             //Setting Gif according to words
-            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
-                int ajay = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 signImage.setImageResource(ajay);
             } else {
-                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 signImage.setImageResource(ajay);
             }
 
@@ -118,11 +118,6 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
 
         @Override
         public void onDone(String utteranceId) {
-
-
-
-
-
             // For Incrementing Words
             i = i + 1;
             speak(arthur, i);
@@ -163,11 +158,11 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         HashMap<String, String> map = new HashMap<>();
 
         for (String stopword : stopwords) {
-            if (arthur[i].toLowerCase().equals(stopword)) {
+            if (arthur[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
 
                 for (char c : alphabet_array) {
-                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase());
+                    map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c).toLowerCase(Locale.getDefault()));
                     tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
@@ -175,7 +170,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         }
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, arthur[i]);
-        tts.speak(arthur[i].toLowerCase(), TextToSpeech.QUEUE_ADD, map);
+        tts.speak(arthur[i].toLowerCase(Locale.getDefault()), TextToSpeech.QUEUE_ADD, map);
     }
 
     @Override

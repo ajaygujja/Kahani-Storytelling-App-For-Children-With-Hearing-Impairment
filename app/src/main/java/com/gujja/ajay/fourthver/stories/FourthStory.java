@@ -92,11 +92,11 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             friendWord.setText(Html.fromHtml(Replce));
 
-            if (utteranceId.toLowerCase().equals("try") || utteranceId.toLowerCase().equals("catch")) {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase() + "1", "raw", getPackageName());
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 friendSignGifs.setImageResource(gif_view);
             } else {
-                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(), "raw", getPackageName());
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 friendSignGifs.setImageResource(gif_view);
             }
 
@@ -160,7 +160,7 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
 
 
         for (String stopword : stopwords) {
-            if (friend_word[i].toLowerCase().equals(stopword)) {
+            if (friend_word[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
 
                 for (char c : alphabet_array) {

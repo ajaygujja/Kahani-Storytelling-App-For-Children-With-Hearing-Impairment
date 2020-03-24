@@ -65,11 +65,16 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
 
     String[] stopwords = {
-            "the", "all", "into", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
-            "it", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
-            "tremble", "fear", "left", "anpther", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
-            "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
-            "as", "about", "instead", "went", "letting", "off", "incredibly", "hot"
+            "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to",
+            "have", "caught", "gave", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt",
+            "every", "stream", "lesson", "let", "upon", "tremble", "fear", "left", "another", "other", "by", "hunter",
+            "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence", "loaded", "would", "be", "still",
+            "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
+            "as", "about", "instead", "went", "letting", "off","it","was","but","didn't","could","were","over","just",
+            "even","that","became","him","chasing","struck","dong","such","fairy","tale","if","therefore","story","will",
+            "every","spring","villagers","noticed","nobody","over","shed","later","them","moral","oak","fence",
+            "worse","observant","this","bush","through","where","customer","generously","dues","order","glittering",
+            "capsized","speechless","grief","what","cheating","dealings","supreme"
     };
 
 
@@ -225,17 +230,22 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
         @Override
         public void onDone(String utteranceId) {
-            // For Incrementing Words
-            i = i + 1;
-            speak(lion, i);
+
 
 
             if (utteranceId.equals(" ")) {
-                j++;
-                GreedySentence.setText(Greedy[j]);
-
+                new Thread(){
+                    @Override
+                    public void run() {
+                        j++;
+                        GreedySentence.setText(Greedy[j]);
+                    }
+                }.start();
             }
 
+            // For Incrementing Words
+            i = i + 1;
+            speak(lion, i);
         }
 
         @Override
@@ -279,6 +289,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
 
     @Override
     public void onBackPressed() {
+        stop();
         super.onBackPressed();
         this.finish();
     }

@@ -60,11 +60,16 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
             "The mouse had such a shock that he ran down the clock."};
 
     String[] stopwords = {
-            "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to", "have", "caught", "gave",
-            "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt", "every", "stream", "lesson", "let", "upon",
-            "tremble", "fear", "left", "another", "other", "by", "hunter", "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence",
-            "loaded", "would", "be", "still", "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
-            "as", "about", "instead", "went", "letting", "off"
+            "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to",
+            "have", "caught", "gave", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt",
+            "every", "stream", "lesson", "let", "upon", "tremble", "fear", "left", "another", "other", "by", "hunter",
+            "thus", "afterwards", "used", "cross", "tumbled", "also", "fell", "hence", "loaded", "would", "be", "still",
+            "become", "dampened", "wet", "anymore", "an", "feeling", "den", "find", "only", "hesitation", "can", "fill",
+            "as", "about", "instead", "went", "letting", "off","it","was","but","didn't","could","were","over","just",
+            "even","that","became","him","chasing","struck","dong","such","fairy","tale","if","therefore","story","will",
+            "every","spring","villagers","noticed","nobody","over","shed","later","them","moral","oak","fence",
+            "worse","observant","this","bush","through","where","customer","generously","dues","order","glittering",
+            "capsized","speechless","grief","what","cheating","dealings","supreme"
     };
 
     @Override
@@ -139,15 +144,21 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
         @Override
         public void onDone(String utteranceId) {
-            i = i + 1;
-            speak(mouseWord, i);
+
 
 
             if(utteranceId.equals(" ")){
-                j++;
-                LilMouseTextSent.setText(mouseSentence[j]);
-
+               new Thread(){
+                   @Override
+                   public void run() {
+                       j++;
+                       LilMouseTextSent.setText(mouseSentence[j]);
+                   }
+               };
             }
+
+            i = i + 1;
+            speak(mouseWord, i);
         }
 
         @Override
@@ -191,6 +202,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
     @Override
     public void onBackPressed() {
+        stop();
         super.onBackPressed();
         this.finish();
     }

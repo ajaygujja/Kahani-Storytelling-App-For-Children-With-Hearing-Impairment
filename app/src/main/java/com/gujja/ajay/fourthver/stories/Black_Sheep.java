@@ -149,7 +149,7 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
                 String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
                 BlackSheepWord.setText(Html.fromHtml(Replace));
 
-                if(utteranceId.toLowerCase(Locale.ROOT).equals("try") || utteranceId.toLowerCase(Locale.ROOT).equals("catch")){
+                if(utteranceId.toLowerCase(Locale.ROOT).equals("try") || utteranceId.toLowerCase(Locale.ROOT).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
                     int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT) +"1", "raw", getPackageName());
                     BlackSheepSignGif.setImageResource(gif_view);
                 } else {

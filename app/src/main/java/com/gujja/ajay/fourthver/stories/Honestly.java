@@ -138,7 +138,7 @@ public class Honestly extends AppCompatActivity implements TextToSpeech.OnInitLi
             String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             HonestlyTextWord.setText(Html.fromHtml(Replace));
 
-            if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")){
+            if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) +"1", "raw", getPackageName());
                 HonestlySignGif.setImageResource(gif_view);
             } else {

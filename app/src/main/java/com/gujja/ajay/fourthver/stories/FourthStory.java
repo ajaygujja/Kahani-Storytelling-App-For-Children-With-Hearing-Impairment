@@ -97,7 +97,7 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
             String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             friendWord.setText(Html.fromHtml(Replce));
 
-            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 friendSignGifs.setImageResource(gif_view);
             } else {

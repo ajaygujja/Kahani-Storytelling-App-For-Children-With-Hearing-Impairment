@@ -99,7 +99,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
             textWord.setText(Html.fromHtml(Replace));
 
             //Setting Gif according to words
-            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 signImage.setImageResource(ajay);
             } else {

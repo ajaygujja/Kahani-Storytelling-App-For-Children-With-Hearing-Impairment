@@ -98,7 +98,7 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             foolDonkeyWord.setText(Html.fromHtml(Replace));
 
 
-            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch")) {
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 foolDonkeySignGifs.setImageResource(gif_view);
             } else {

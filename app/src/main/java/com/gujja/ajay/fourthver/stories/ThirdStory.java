@@ -84,7 +84,7 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             "even","that","became","him","chasing","struck","dong","such","fairy","tale","if","therefore","story","will",
             "every","spring","villagers","noticed","nobody","over","shed","later","them","moral","oak","fence",
             "worse","observant","this","bush","through","where","customer","generously","dues","order","glittering",
-            "capsized","speechless","grief","what","cheating","dealings","supreme"
+            "capsized","speechless","grief","what","cheating","dealings","supreme","anymore","seller","won't","favor","about","instead"
     };
 
 

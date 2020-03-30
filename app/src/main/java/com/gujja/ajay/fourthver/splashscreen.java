@@ -24,10 +24,13 @@ public class splashscreen extends AppCompatActivity {
         start_animation();
 
         int SPLASH_TIME_OUT = 3000;
-        new Handler().postDelayed(() -> {
-            Intent SplashIntent = new Intent(splashscreen.this, AgeSelection.class);
-            startActivity(SplashIntent);
-            finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent SplashIntent = new Intent(splashscreen.this, AgeSelection.class);
+                splashscreen.this.startActivity(SplashIntent);
+                splashscreen.this.finish();
+            }
         }, SPLASH_TIME_OUT);
     }
 

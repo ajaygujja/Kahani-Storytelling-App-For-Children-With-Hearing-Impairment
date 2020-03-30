@@ -107,9 +107,9 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                 signImage.setImageResource(ajay);
             }
 
-            if(isRunning()){
+           /* if(isRunning()){
                 tts.playSilentUtterance(2000,TextToSpeech.QUEUE_ADD,utteranceId);
-            }
+            }*/
         }
 
         @Override
@@ -134,6 +134,14 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
                        textSent.setText(joker[j]);
                    }
                }.start();
+            }
+
+            if(isRunning()){
+                try {
+                    tts.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
             // For Incrementing Words

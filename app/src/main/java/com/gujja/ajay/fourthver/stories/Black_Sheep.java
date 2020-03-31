@@ -40,8 +40,6 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
     int j = 0;
     float speed = 0.7f;
     float pitch = 0.8f;
-    private TextToSpeech tts;
-    UtteranceProgressListener mProgressListener;
 
     String[] sheep_sentence = {
             "There lived a black sheep in a nearby village.",
@@ -86,7 +84,7 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
             "worse","observant","this","bush","through","where","customer","generously","dues","order","glittering",
             "capsized","speechless","grief","what","cheating","dealings","supreme","anymore","seller","won't","favor","about","instead"
     };
-
+    private TextToSpeech tts;
 
 
     @Override
@@ -118,6 +116,11 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
         BlackSheepSignGif.setVisibility(View.INVISIBLE);
     }
 
+    /*public Black_Sheep() {
+        mProgressListener = new UtteranceProgressListener() {
+
+    }*/
+
     private void speak(String[] text, int i) {
 
         tts.setSpeechRate(speed);  // 0.7f
@@ -142,49 +145,48 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
 
     }
 
-    public Black_Sheep() {
-        mProgressListener = new UtteranceProgressListener() {
-            @Override
-            public void onStart(String utteranceId) {
-                String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-                BlackSheepWord.setText(Html.fromHtml(Replace));
 
-                if(utteranceId.toLowerCase(Locale.ROOT).equals("try") || utteranceId.toLowerCase(Locale.ROOT).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
-                    int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT) +"1", "raw", getPackageName());
-                    BlackSheepSignGif.setImageResource(gif_view);
-                } else {
-                    int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT), "raw", getPackageName());
-                    BlackSheepSignGif.setImageResource(gif_view);
-                }
+    UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+
+        @Override
+        public void onStart(String utteranceId) {
+            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            BlackSheepWord.setText(Html.fromHtml(Replace));
+
+            if(utteranceId.toLowerCase(Locale.ROOT).equals("try") || utteranceId.toLowerCase(Locale.ROOT).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT) +"1", "raw", getPackageName());
+                BlackSheepSignGif.setImageResource(gif_view);
+            } else {
+                int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT), "raw", getPackageName());
+                BlackSheepSignGif.setImageResource(gif_view);
+            }
+        }
+
+
+        @Override
+        public void onDone(String utteranceId) {
+
+
+            if(utteranceId.equals(" ")){
+                new Thread(){
+                    @Override
+                    public void run() {
+                        j++;
+                        BlackSheepSentence.setText(sheep_sentence[j]);
+                    }
+                }.start();
+
             }
 
+            i = i + 1;
+            speak(sheep_words, i);
+        }
 
-            @Override
-            public void onDone(String utteranceId) {
+        @Override
+        public void onError(String utteranceId) {
 
-
-                if(utteranceId.equals(" ")){
-                    new Thread(){
-                        @Override
-                        public void run() {
-                            j++;
-                            BlackSheepSentence.setText(sheep_sentence[j]);
-                        }
-                    }.start();
-
-                }
-
-                i = i + 1;
-                speak(sheep_words, i);
-            }
-
-            @Override
-            public void onError(String utteranceId) {
-
-            }
-        };
-    }
-
+        }
+    };
 
 
     @Override
@@ -245,6 +247,7 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
                 break;
         }
     }
+
 
 
 }

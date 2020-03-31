@@ -20,7 +20,7 @@
 
 
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/layoutdots"
+        android:id="@+id/layout_dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:dotsColor="@color/black"
@@ -36,6 +36,7 @@
         />
 
     <ImageButton
+        android:id="@+id/Child_arrow"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/next_btn_black"

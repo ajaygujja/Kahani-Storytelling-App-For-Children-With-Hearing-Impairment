@@ -24,6 +24,17 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
+    @BindView(R.id.GreedySent)
+    TextView GreedySentence;
+    @BindView(R.id.GreedyWord)
+    TextView GreedyWord;
+    @BindView(R.id.Greedy_Button_speak)
+    ImageButton GreedyButtonSpeak;
+    @BindView(R.id.Greedy_button_stop)
+    ImageButton GreedyButtonStop;
+    @BindView(R.id.Greedy_Lion_SignImage)
+    GifImageView GreedyLionSignGif;
+
     int i = 0;
     int j = 0;
     float speed = 0.7f;
@@ -64,7 +75,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     };
 
 
-    String[] stopwords = {
+    String[] stop_words = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to",
             "have", "caught", "gave", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt",
             "every", "stream", "lesson", "let", "upon", "tremble", "fear", "left", "another", "other", "by", "hunter",
@@ -78,16 +89,6 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     };
 
 
-    @BindView(R.id.GreedySent)
-    TextView GreedySentence;
-    @BindView(R.id.GreedyWord)
-    TextView GreedyWord;
-    @BindView(R.id.Greedy_Button_speak)
-    ImageButton GreedyButtonSpeak;
-    @BindView(R.id.Greedy_button_stop)
-    ImageButton GreedyButtonStop;
-    @BindView(R.id.Greedy_Lion_SignImage)
-    GifImageView GreedyLionSignGif;
 
 
     @Override
@@ -105,41 +106,12 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-      /*  GreedyButtonSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Thread() {
-                    public void run() {
-                        GreedyLion.this.runOnUiThread(new runnable() {
-                            @Override
-                            public void run() {
-                                speak(lion, i);
-
-                            }
-                        });
-                    }
-                }.start();
-            }
-        });
-
-
-        GreedyButtonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stop();
-            }
-        });*/
       GreedyButtonSpeak.setOnClickListener(this);
       GreedyButtonStop.setOnClickListener(this);
 
     }
 
     private void stop() {
-        new Thread() {
-            public void run() {
-                GreedyLion.this.runOnUiThread(() -> Toast.makeText(getBaseContext(), "TTS Completed", Toast.LENGTH_SHORT).show());
-            }
-        }.start();
         tts.stop();
         tts.shutdown();
         GreedySentence.setText(Greedy[0]);
@@ -155,7 +127,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (String stopword : stopwords) {
+        for (String stopword : stop_words) {
             if (lion[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
 
@@ -198,7 +170,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         }
     }
 
-    private abstract class runnable implements Runnable {
+    private abstract static class runnable implements Runnable {
     }
 
     //Initialization of Utterance Listener

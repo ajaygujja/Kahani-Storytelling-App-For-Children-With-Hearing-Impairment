@@ -36,6 +36,7 @@
         />
 
     <ImageButton
+        android:id="@+id/Mid_Arrow"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/next_btn_black"

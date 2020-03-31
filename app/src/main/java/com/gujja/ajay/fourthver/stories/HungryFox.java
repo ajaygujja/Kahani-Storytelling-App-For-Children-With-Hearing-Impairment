@@ -89,66 +89,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     };
 
 
-    //Initialization of Utterance Listener
-    final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
-        @Override
-        public void onStart(String utteranceId) {
 
-            // For Highlighting Spoken Words
-            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            textWord.setText(Html.fromHtml(Replace));
-
-            //Setting Gif according to words
-            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
-                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
-                signImage.setImageResource(ajay);
-            } else {
-                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
-                signImage.setImageResource(ajay);
-            }
-
-           /* if(isRunning()){
-                tts.playSilentUtterance(2000,TextToSpeech.QUEUE_ADD,utteranceId);
-            }*/
-        }
-
-        @Override
-        public void onRangeStart(String utteranceId, int start, int end, int frame) {
-            super.onRangeStart(utteranceId, start, end, frame);
-        }
-
-        @Override
-        public void onError(String utteranceId) {
-        }
-
-        @Override
-        public void onDone(String utteranceId) {
-
-
-            // For Incrementing Sentences
-            if (utteranceId.equals(" ")) {
-               new Thread(){
-                   @Override
-                   public void run() {
-                       j++;
-                       textSent.setText(joker[j]);
-                   }
-               }.start();
-            }
-
-            if(isRunning()){
-                try {
-                    tts.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            // For Incrementing Words
-            i = i + 1;
-            speak(arthur, i);
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,6 +143,64 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         textSent.setText(joker[0]);
         signImage.setVisibility(View.INVISIBLE);
     }
+
+    //Initialization of Utterance Listener
+    final UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
+        @Override
+        public void onStart(String utteranceId) {
+
+            // For Highlighting Spoken Words
+            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            textWord.setText(Html.fromHtml(Replace));
+
+            //Setting Gif according to words
+            if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
+                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
+                signImage.setImageResource(ajay);
+            } else {
+                int ajay = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
+                signImage.setImageResource(ajay);
+            }
+
+        }
+
+        @Override
+        public void onRangeStart(String utteranceId, int start, int end, int frame) {
+            super.onRangeStart(utteranceId, start, end, frame);
+        }
+
+        @Override
+        public void onError(String utteranceId) {
+        }
+
+        @Override
+        public void onDone(String utteranceId) {
+
+
+            // For Incrementing Sentences
+            if (utteranceId.equals(" ")) {
+                new Thread(){
+                    @Override
+                    public void run() {
+                        j++;
+                        textSent.setText(joker[j]);
+                    }
+                }.start();
+            }
+
+            if(isRunning()){
+                try {
+                    tts.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // For Incrementing Words
+            i = i + 1;
+            speak(arthur, i);
+        }
+    };
 
     @Override
     public void start() {

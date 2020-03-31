@@ -49,21 +49,20 @@
             style="?android:attr/buttonBarStyle"
             android:layout_height="wrap_content">
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Greedy_Button_speak"
-                android:text="@string/speak"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_marginEnd="10dp"/>
+                android:src="@drawable/ic_play_arrow"
+                />
 
-            <Button
+            <ImageButton
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Greedy_button_stop"
-                android:layout_marginStart="10dp"
-                android:text="@string/stop"
+                android:src="@drawable/ic_stop_black_24dp"
                 />
 
 

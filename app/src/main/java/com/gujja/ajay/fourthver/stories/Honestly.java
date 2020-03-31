@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +29,9 @@ public class Honestly extends AppCompatActivity implements TextToSpeech.OnInitLi
     @BindView(R.id.Honestly_TextWord)
     TextView HonestlyTextWord;
     @BindView(R.id.Honestly_Button_speak)
-    Button HonestlyButtonSpeak;
+    ImageButton HonestlyButtonSpeak;
     @BindView(R.id.Honestly_button_stop)
-    Button HonestlyButtonStop;
+    ImageButton HonestlyButtonStop;
     @BindView(R.id.Honestly_Sign_Gif)
     GifImageView HonestlySignGif;
 
@@ -218,10 +218,12 @@ public class Honestly extends AppCompatActivity implements TextToSpeech.OnInitLi
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.Honestly_Button_speak:
+                HonestlyButtonSpeak.setEnabled(false);
                 speak(hon_words,i);
                 break;
 
             case  R.id.Honestly_button_stop:
+                HonestlyButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }

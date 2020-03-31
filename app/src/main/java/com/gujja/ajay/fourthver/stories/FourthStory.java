@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,9 +36,9 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     @BindView(R.id.friend_TextWord)
     TextView friendWord;
     @BindView(R.id.friend_Button_speak)
-    Button friendButtonSpeak;
+    ImageButton friendButtonSpeak;
     @BindView(R.id.friend_button_stop)
-    Button friendButtonStop;
+    ImageButton friendButtonStop;
     @BindView(R.id.friend_SignImage)
     GifImageView friendSignGifs;
 
@@ -168,7 +168,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
         tts.setPitch(pitch);
         HashMap<String, String> map = new HashMap<>();
 
-
         for (String stopword : stopwords) {
             if (friend_word[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
@@ -177,12 +176,9 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
                     map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, String.valueOf(c));
                     tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
-
                 }
-
             }
         }
-
 
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, friend_word[i]);
         tts.speak(friend_word[i], TextToSpeech.QUEUE_ADD, map);
@@ -194,7 +190,6 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.speedmeter, menu);
-
         return true;
     }
 
@@ -243,10 +238,12 @@ public class FourthStory extends AppCompatActivity implements TextToSpeech.OnIni
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.friend_Button_speak:
+                friendButtonSpeak.setEnabled(false);
                 speak(friend_word,i);
                 break;
 
             case  R.id.friend_button_stop:
+                friendButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }

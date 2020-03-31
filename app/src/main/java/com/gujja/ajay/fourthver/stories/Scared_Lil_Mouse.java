@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +29,9 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
     @BindView(R.id.Lil_Mouse_TextWord)
     TextView LilMouseTextWord;
     @BindView(R.id.Lil_Mouse_Button_speak)
-    Button LilMouseButtonSpeak;
+    ImageButton LilMouseButtonSpeak;
     @BindView(R.id.Lil_Mouse_button_stop)
-    Button LilMouseButtonStop;
+    ImageButton LilMouseButtonStop;
     @BindView(R.id.Lil_Mouse_Sign_Gif)
     GifImageView LilMouseSignGif;
 
@@ -59,7 +59,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
             "Not long after that, the clock struck one, ‘Dong!’ ",
             "The mouse had such a shock that he ran down the clock."};
 
-    String[] stopwords = {
+    String[] stop_words = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to",
             "have", "caught", "gave", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt",
             "every", "stream", "lesson", "let", "upon", "tremble", "fear", "left", "another", "other", "by", "hunter",
@@ -108,7 +108,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         HashMap<String, String> map = new HashMap<>();
 
 
-        for (String s : stopwords) {
+        for (String s : stop_words) {
             if (mouseWord[i].toLowerCase(Locale.getDefault()).equals(s)) {
                 char[] alphabet_array = s.toCharArray();
 
@@ -218,9 +218,11 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         switch (view.getId()){
             case  R.id.Lil_Mouse_Button_speak:
                 speak(mouseWord,i);
+                LilMouseButtonSpeak.setEnabled(false);
                 break;
 
             case  R.id.Lil_Mouse_button_stop:
+                LilMouseButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }

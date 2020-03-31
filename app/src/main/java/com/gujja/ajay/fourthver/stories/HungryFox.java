@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,9 +37,9 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     @BindView(R.id.TextWord)
     TextView textWord;
     @BindView(R.id.Buttonspeak)
-    Button buttonspeak;
+    ImageButton buttonspeak;
     @BindView(R.id.buttonstop)
-    Button buttonstop;
+    ImageButton buttonstop;
     @BindView(R.id.Button_Layout)
     LinearLayout ButtonLayout;
     @BindView(R.id.SignImage)
@@ -263,10 +263,12 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.Buttonspeak:
+                buttonspeak.setEnabled(false);
                 speak(arthur,i);
                 break;
 
             case  R.id.buttonstop:
+                buttonspeak.setEnabled(true);
                 stop();
                 break;
         }

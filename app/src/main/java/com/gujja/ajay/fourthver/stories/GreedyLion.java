@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,9 +83,9 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     @BindView(R.id.GreedyWord)
     TextView GreedyWord;
     @BindView(R.id.Greedy_Button_speak)
-    Button GreedyButtonSpeak;
+    ImageButton GreedyButtonSpeak;
     @BindView(R.id.Greedy_button_stop)
-    Button GreedyButtonStop;
+    ImageButton GreedyButtonStop;
     @BindView(R.id.Greedy_Lion_SignImage)
     GifImageView GreedyLionSignGif;
 
@@ -187,10 +187,12 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.Greedy_Button_speak:
+                GreedyButtonSpeak.setEnabled(false);
                 speak(lion,i);
                 break;
 
             case  R.id.Greedy_button_stop:
+                GreedyButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }

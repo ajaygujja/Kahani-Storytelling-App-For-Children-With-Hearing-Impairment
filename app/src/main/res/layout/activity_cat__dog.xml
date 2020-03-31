@@ -23,9 +23,6 @@
             android:text="Hello World!"
             android:textSize="27sp" />
 
-
-
-
         <TextView
             android:id="@+id/Cat_Dog_TextWord"
             android:layout_width="match_parent"
@@ -50,19 +47,20 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:id="@+id/Cat_Dog_Button_speak"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stop" />
+                android:src="@drawable/ic_play_arrow"/>
 
-            <Button
+            <ImageButton
+
                 android:id="@+id/Cat_Dog_button_stop"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stop" />
+                android:src="@drawable/ic_stop_black_24dp" />
 
 
         </LinearLayout>
@@ -77,7 +75,6 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:padding="2dp" />
-
 
         </LinearLayout>
 

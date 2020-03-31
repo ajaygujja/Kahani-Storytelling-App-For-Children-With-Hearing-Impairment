@@ -51,19 +51,19 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:id="@+id/owl_Button_speak"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/speak" />
+                android:src="@drawable/ic_play_arrow"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/owl_button_stop"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stop" />
+                android:src="@drawable/ic_stop_black_24dp" />
 
 
         </LinearLayout>

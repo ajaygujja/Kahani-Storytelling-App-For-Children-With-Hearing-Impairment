@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +29,9 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
     @BindView(R.id.owl_TextWord)
     TextView owl_text_Word;
     @BindView(R.id.owl_Button_speak)
-    Button owl_Speak;
+    ImageButton owl_Speak;
     @BindView(R.id.owl_button_stop)
-    Button owl_Stop;
+    ImageButton owl_Stop;
     @BindView(R.id.owl_Sign_Gif)
     GifImageView owlSignGif;
 
@@ -220,10 +220,12 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.owl_Button_speak:
+                owl_Speak.setEnabled(false);
                 speak(words,i);
                 break;
 
             case  R.id.owl_button_stop:
+                owl_Speak.setEnabled(true);
                 stop();
                 break;
         }

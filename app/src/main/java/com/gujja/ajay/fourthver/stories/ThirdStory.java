@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +35,9 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     @BindView(R.id.fool_donkey_TextWord)
     TextView foolDonkeyWord;
     @BindView(R.id.fool_donkey_Button_speak)
-    Button foolDonkeyButtonSpeak;
+    ImageButton foolDonkeyButtonSpeak;
     @BindView(R.id.fool_donkey_button_stop)
-    Button foolDonkeyButtonStop;
+    ImageButton foolDonkeyButtonStop;
     @BindView(R.id.fool_donkey_SignImage)
     GifImageView foolDonkeySignGifs;
 
@@ -239,10 +239,12 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.fool_donkey_Button_speak:
+                foolDonkeyButtonSpeak.setEnabled(false);
                 speak(foolish,i);
                 break;
 
             case  R.id.fool_donkey_button_stop:
+                foolDonkeyButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }

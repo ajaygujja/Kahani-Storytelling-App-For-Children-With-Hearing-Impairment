@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +29,9 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
     @BindView(R.id.Black_Sheep_Word)
     TextView BlackSheepWord;
     @BindView(R.id.Black_Sheep_Button_speak)
-    Button BlackSheepButtonSpeak;
+    ImageButton BlackSheepButtonSpeak;
     @BindView(R.id.Black_Sheep_button_stop)
-    Button BlackSheepButtonStop;
+    ImageButton BlackSheepButtonStop;
     @BindView(R.id.Black_Sheep_Sign_Gif)
     GifImageView BlackSheepSignGif;
 
@@ -235,10 +235,12 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.Black_Sheep_Button_speak:
+                BlackSheepButtonSpeak.setEnabled(false);
                 speak(sheep_words,i);
                 break;
 
             case  R.id.Black_Sheep_button_stop:
+                BlackSheepButtonStop.setEnabled(true);
                 stop();
                 break;
         }

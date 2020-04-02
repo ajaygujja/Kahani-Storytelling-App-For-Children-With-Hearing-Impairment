@@ -1,3 +1,21 @@
+/*      Copyright (c) 2020 ajay gujja
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+        associated documentation files (the "Software"), to deal in the Software without restriction,
+        including without limitation the rights to use, copy, modify, merge, publish, distribute,
+        sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+        subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+        DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+        ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
 package com.gujja.ajay.fourthver.stories;
 
 import android.os.Bundle;
@@ -90,7 +108,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         /* @OnClick Listener */
         LilMouseButtonSpeak.setOnClickListener(this);
         LilMouseButtonStop.setOnClickListener(this);
-
     }
 
     private void stop() {
@@ -132,6 +149,12 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
             String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
             LilMouseTextWord.setText(Html.fromHtml(Replace));
 
+            /*new Thread(){
+                @Override
+                public void run() {
+
+                }
+            }.start();*/
 
             if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) +"1", "raw", getPackageName());
@@ -144,8 +167,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
         @Override
         public void onDone(String utteranceId) {
-
-
 
             if(utteranceId.equals(" ")){
                new Thread(){
@@ -163,7 +184,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
         @Override
         public void onError(String utteranceId) {
-
         }
     };
 
@@ -176,7 +196,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
 
         switch (item.getItemId()){
             case R.id.Slow :
@@ -197,7 +216,6 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
@@ -206,6 +224,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         super.onBackPressed();
         this.finish();
     }
+
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {

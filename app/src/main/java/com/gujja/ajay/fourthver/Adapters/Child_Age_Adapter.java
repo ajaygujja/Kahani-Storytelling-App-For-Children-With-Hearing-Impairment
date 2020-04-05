@@ -29,7 +29,7 @@ import android.widget.TextView;
 
 import com.gujja.ajay.fourthver.R;
 import com.gujja.ajay.fourthver.stories.Cat_Dog;
-import com.gujja.ajay.fourthver.stories.FourthStory;
+import com.gujja.ajay.fourthver.stories.Lion_Mouse;
 import com.gujja.ajay.fourthver.stories.Scared_Lil_Mouse;
 
 import androidx.annotation.NonNull;
@@ -121,7 +121,7 @@ public class Child_Age_Adapter extends PagerAdapter {
             }
 
             if (position == 2) {
-                i = new Intent(context, FourthStory.class);
+                i = new Intent(context, Lion_Mouse.class);
                 context.startActivity(i);
             }
 

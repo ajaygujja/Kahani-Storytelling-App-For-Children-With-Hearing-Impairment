@@ -18,6 +18,8 @@
 
 package com.gujja.ajay.fourthver.stories;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -105,11 +107,14 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
     private TextToSpeech tts;
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_black__sheep);
         ButterKnife.bind(this);
+        Black_Sheep.this.setTitle("Black Sheep");
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         BlackSheepWord.setText(sheep_words[0]);
         BlackSheepSentence.setText(sheep_sentence[0]);
@@ -133,11 +138,6 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
         BlackSheepSentence.setText(sheep_sentence[0]);
         BlackSheepSignGif.setVisibility(View.INVISIBLE);
     }
-
-    /*public Black_Sheep() {
-        mProgressListener = new UtteranceProgressListener() {
-
-    }*/
 
     private void speak(String[] text, int i) {
 

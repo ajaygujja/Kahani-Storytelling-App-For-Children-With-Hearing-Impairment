@@ -114,6 +114,7 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_greedy_lion);
         ButterKnife.bind(this);
+        GreedyLion.this.setTitle("Greedy Lion");
 
         GreedySentence.setText(Greedy[0]);
         GreedyWord.setText(lion[0]);

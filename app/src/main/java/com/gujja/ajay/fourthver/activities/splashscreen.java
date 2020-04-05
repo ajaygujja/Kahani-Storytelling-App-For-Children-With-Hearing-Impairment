@@ -16,7 +16,7 @@
 
 */
 
-package com.gujja.ajay.fourthver;
+package com.gujja.ajay.fourthver.activities;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.view.Window;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.gujja.ajay.fourthver.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

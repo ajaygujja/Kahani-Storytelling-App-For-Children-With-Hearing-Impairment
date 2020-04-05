@@ -103,6 +103,7 @@ public class Honestly extends AppCompatActivity implements TextToSpeech.OnInitLi
         setContentView(R.layout.activity_honestly);
         ButterKnife.bind(this);
 
+
         HonestlyTextWord.setText(hon_words[0]);
         HonestlyTextSent.setText(hon_sentence[0]);
 

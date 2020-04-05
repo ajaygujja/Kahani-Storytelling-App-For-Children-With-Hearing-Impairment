@@ -1,51 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gujja.ajay.fourthver">
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
 
         <activity
-            android:name=".Adult_Group"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:name=".activities.Adult_Group"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity"/>
 
         <activity
-            android:name=".Mid_Age_Group"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".stories.Honestly" />
-        <activity android:name=".stories.Wise_Owl" />
-        <activity android:name=".stories.Black_Sheep" />
-        <activity android:name=".stories.Scared_Lil_Mouse" />
-        <activity android:name=".stories.Cat_Dog" />
+            android:name=".activities.Mid_Age_Group"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name=".AgeSelection"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".stories.FourthStory" />
-        <activity android:name=".stories.ThirdStory" />
-        <activity android:name=".stories.GreedyLion" />
+            android:name=".stories.Honestly"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Child_Group"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".stories.Wise_Owl"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".stories.Black_Sheep"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".stories.Scared_Lil_Mouse"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".stories.Cat_Dog"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name=".splashscreen"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".activities.AgeSelection"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".stories.Lion_Mouse"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".stories.Foolish_Donkey"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".stories.GreedyLion"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activities.Child_Group"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activities.splashscreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".stories.HungryFox" />
+
+        <activity
+            android:name=".stories.HungryFox"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>

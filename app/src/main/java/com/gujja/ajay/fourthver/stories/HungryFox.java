@@ -114,6 +114,7 @@ public class HungryFox extends AppCompatActivity implements TextToSpeech.OnInitL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hungry_fox);
         ButterKnife.bind(this);
+        HungryFox.this.setTitle("Hungry Fox");
 
         //Setting Default Text
         textSent.setText(joker[0]);

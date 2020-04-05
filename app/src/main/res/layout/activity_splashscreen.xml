@@ -24,7 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splashgradeint"
-    tools:context=".splashscreen">
+    tools:context=".activities.splashscreen">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/splashscreen"

@@ -18,7 +18,6 @@
 
 package com.gujja.ajay.fourthver.Adapters;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -28,14 +27,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gujja.ajay.fourthver.Adult_Group;
-import com.gujja.ajay.fourthver.Child_Group;
-import com.gujja.ajay.fourthver.Mid_Age_Group;
 import com.gujja.ajay.fourthver.R;
+import com.gujja.ajay.fourthver.activities.Adult_Group;
+import com.gujja.ajay.fourthver.activities.Child_Group;
+import com.gujja.ajay.fourthver.activities.Mid_Age_Group;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
 import androidx.viewpager.widget.PagerAdapter;
 import pl.droidsonroids.gif.GifImageView;
 

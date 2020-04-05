@@ -104,6 +104,7 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cat__dog);
         ButterKnife.bind(this);
+        Cat_Dog.this.setTitle("Cat and Dog");
 
         CatDogTextSent.setText(dog[0]);
         CatDogTextWord.setText(cat[0]);

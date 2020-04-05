@@ -40,7 +40,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
 
-public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
+
+public class Lion_Mouse extends AppCompatActivity implements TextToSpeech.OnInitListener, View.OnClickListener {
 
     int i = 0;
     int j = 0;
@@ -48,50 +49,50 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     float pitch = 0.8f;
     private TextToSpeech tts;
 
-    @BindView(R.id.fool_donkey_textview)
-    TextView foolDonkeySentence;
-    @BindView(R.id.fool_donkey_TextWord)
-    TextView foolDonkeyWord;
-    @BindView(R.id.fool_donkey_Button_speak)
-    ImageButton foolDonkeyButtonSpeak;
-    @BindView(R.id.fool_donkey_button_stop)
-    ImageButton foolDonkeyButtonStop;
-    @BindView(R.id.fool_donkey_SignImage)
-    GifImageView foolDonkeySignGifs;
+    @BindView(R.id.friend_textview)
+    TextView friendSentence;
+    @BindView(R.id.friend_TextWord)
+    TextView friendWord;
+    @BindView(R.id.friend_Button_speak)
+    ImageButton friendButtonSpeak;
+    @BindView(R.id.friend_button_stop)
+    ImageButton friendButtonStop;
+    @BindView(R.id.friend_SignImage)
+    GifImageView friendSignGifs;
 
-
-    String[] foolish = {
-            "A", "salt", "seller", "used", "to", "carry", "the", "salt", "bag", "on", "his",
-            "donkey", "to", "the", "market", "every", "day", " ",
-            "On", "the", "way", "they", "had", "to", "cross", "a", "stream", " ",
-            "One", "day", "the", "donkey", "suddenly", "tumbled", "down", "the", "stream",
-            "and", "the", "salt", "bag", "also", "fell", "into", "the", "water", " ",
-            "The", "salt", "dissolved", "in", "the", "water", "and", "hence", "the", "bag", "became", "very", "light", "to", "carry", " ",
-            "The", "donkey", "was", "happy", " ",
-            "Then", "the", "donkey", "started", "to", "play", "the", "same", "trick", "every", "day", " ",
-            "The", "salt", "seller", "came", "to", "understand", "the", "trick", "and", "decided", "to", "teach", "a", "lesson", "to", "it", " ",
-            "The", "next", "day", "he", "loaded", "a", "cotton", "bag", "on", "the", "donkey", " ",
-            "Again", "it", "played", "the", "same", "trick", "hoping", "that", "the", "cotton", "bag", "would", "be", "still", "become", "lighter", " ",
-            "But", "the", "dampened", "cotton", "became", "very", "heavy", "to", "carry", "and", "the", "donkey", "suffered", " ",
-            "It", "learnt", "a", "lesson", " ",
-            "It", "didn't", "play", "the", "trick", "anymore", "after", "that", "day", "and", "the", "seller", "was", "happy"
+    String[] friend_word = {
+            "Once", "upon", "a", "time", "there", "lived", "a", "lion", "in", "a", "forest", " ",
+            "One", "day", "after", "a", "heavy", "meal", " ",
+            "It", "was", "sleeping", "under", "a", "tree", " ",
+            "After", "a", "while", "there", "came", "a", "mouse", "and", "it", "started", "to", "play", "on", "the", "lion", " ",
+            "Suddenly", "the", "lion", "got", "up", "with", "anger", "and", "looked", "for", "those", "who", "disturbed", "its", "nice", "sleep", " ",
+            "Then", "it", "saw", "a", "small", "mouse", "standing", "trembling", "with", "fear", " ",
+            "The", "lion", "jumped", "on", "it", "and", "started", "to", "kill", "it", " ",
+            "The", "mouse", "requested", "the", "lion", "to", "forgive", "it", " ",
+            "The", "lion", "felt", "pity", "and", "left", "it", " ",
+            "The", "mouse", "ran", "away", " ",
+            "On", "another", "day", "the", "lion", "was", "caught", "in", "a", "net", "by", "a", "hunter", " ",
+            "The", "mouse", "came", "there", "and", "cut", "the", "net", " ",
+            "Thus", "it", "escaped", " ",
+            "There", "after", "the", "mouse", "and", "the", "lion", "became", "friends", " ",
+            "They", "lived", "happily", "in", "the", "forest", "afterwards"
     };
-
-    String[] donkey = {
-            "A salt seller used to carry the salt bag on his donkey to the market every day.\n",
-            "On the way they had to cross a stream.\n",
-            "One day the donkey suddenly tumbled down the stream and the salt bag also fell into the water.\n",
-            "The salt dissolved in the water and hence the bag became very light to carry.\n",
-            "The donkey was happy.\n",
-            "Then the donkey started to play the same trick every day.\n",
-            "The salt seller came to understand the trick and decided to teach a lesson to it.\n",
-            "The next day he loaded a cotton bag on the donkey.\n",
-            "Again it played the same trick hoping that the cotton bag would be still become lighter.\n",
-            "But the dampened cotton became very heavy to carry and the donkey suffered.\n",
-            "It learnt a lesson.\n",
-            "It didn’t play the trick anymore after that day, and the seller was happy."
-    };
-
+    String[] friend_sentence = {
+            "Once upon a time there lived a lion in a forest.",
+            "One day after a heavy meal.",
+            "It was sleeping under a tree.",
+            "After a while, there came a mouse and it started to play on the lion.",
+            "Suddenly the lion got up with anger and looked for those who disturbed its nice sleep.",
+            "Then it saw a small mouse standing trembling with fear.",
+            "The lion jumped on it and started to kill it.",
+            "The mouse requested the lion to forgive it.",
+            "The lion felt pity and left it.",
+            "The mouse ran away.",
+            "On another day, the lion was caught in a net by a hunter.",
+            "The mouse came there and cut the net.",
+            "Thus it escaped.",
+            "There after, the mouse and the lion became friends.",
+            "They lived happily in the forest afterwards."};
     String[] stopwords = {
             "the", "all", "into", "loaf", "but", "for", "and", "at", "found", "of", "in", "squeezed", "hole", "to",
             "have", "caught", "gave", "came", "on", "become", "trick", "with", "carry", "cotton", "that", "felt",
@@ -105,23 +106,21 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
             "capsized","speechless","grief","what","cheating","dealings","supreme","anymore","seller","won't","favor","about","instead"
     };
 
-
-
+    //Initialization of Utterance Listener
     UtteranceProgressListener mProgressListener = new UtteranceProgressListener() {
         @Override
-        public void onStart(String utteranceId) {
+        public void onStart(final String utteranceId) {
 
             // For Highlighting Spoken Words
-            String Replace = "<span style= 'background-color:green'>" + utteranceId + "</span>";
-            foolDonkeyWord.setText(Html.fromHtml(Replace));
-
+            String Replce = "<span style= 'background-color:green'>" + utteranceId + "</span>";
+            friendWord.setText(Html.fromHtml(Replce));
 
             if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
-                foolDonkeySignGifs.setImageResource(gif_view);
+                friendSignGifs.setImageResource(gif_view);
             } else {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
-                foolDonkeySignGifs.setImageResource(gif_view);
+                friendSignGifs.setImageResource(gif_view);
             }
 
         }
@@ -135,13 +134,14 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
                     @Override
                     public void run() {
                         j++;
-                        foolDonkeySentence.setText(donkey[j]);
+                        friendSentence.setText(friend_sentence[j]);
                     }
-                }.start();
-            }
+                };
 
+            }
+            // For Incrementing Words
             i = i + 1;
-            speak(foolish, i);
+            speak(friend_word, i);
 
         }
 
@@ -154,39 +154,41 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_third_story);
+        setContentView(R.layout.activity_fourth_story);
         ButterKnife.bind(this);
+        Lion_Mouse.this.setTitle("Lion and A Mouse");
 
-        foolDonkeySentence.setText(donkey[0]);
-        foolDonkeyWord.setText(foolish[0]);
+        //Setting Default Text
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
 
         // Initialization of Text To Speech
-        tts = new TextToSpeech(ThirdStory.this, this);
+        tts = new TextToSpeech(Lion_Mouse.this, this);
 
         // Tracking of Words
         tts.setOnUtteranceProgressListener(mProgressListener);
 
-        /* @OnClick Listener */
-        foolDonkeyButtonSpeak.setOnClickListener(this);
-        foolDonkeyButtonStop.setOnClickListener(this);
-
+        friendButtonSpeak.setOnClickListener(this);
+        friendButtonStop.setOnClickListener(this);
     }
 
     private void stop() {
+
         tts.stop();
         tts.shutdown();
-        foolDonkeySentence.setText(donkey[0]);
-        foolDonkeyWord.setText(foolish[0]);
-        foolDonkeySignGifs.setVisibility(View.INVISIBLE);
+        friendSentence.setText(friend_sentence[0]);
+        friendWord.setText(friend_word[0]);
+        friendSignGifs.setVisibility(View.INVISIBLE);
     }
 
     private void speak(String[] text, int i) {
+
         tts.setSpeechRate(speed);
         tts.setPitch(pitch);
         HashMap<String, String> map = new HashMap<>();
 
         for (String stopword : stopwords) {
-            if (foolish[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
+            if (friend_word[i].toLowerCase(Locale.getDefault()).equals(stopword)) {
                 char[] alphabet_array = stopword.toCharArray();
 
                 for (char c : alphabet_array) {
@@ -194,20 +196,19 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
                     tts.setSpeechRate(0.5f);
                     tts.speak(String.valueOf(c), TextToSpeech.QUEUE_ADD, map);
                 }
-
             }
         }
 
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, friend_word[i]);
+        tts.speak(friend_word[i], TextToSpeech.QUEUE_ADD, map);
 
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, foolish[i]);
-        tts.speak(foolish[i], TextToSpeech.QUEUE_ADD, map);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.speedmeter, menu);
-
         return true;
     }
 
@@ -242,7 +243,6 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
         stop();
         super.onBackPressed();
         this.finish();
-
     }
 
     @Override
@@ -256,16 +256,18 @@ public class ThirdStory extends AppCompatActivity implements TextToSpeech.OnInit
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case  R.id.fool_donkey_Button_speak:
-                foolDonkeyButtonSpeak.setEnabled(false);
-                speak(foolish,i);
+            case  R.id.friend_Button_speak:
+                friendButtonSpeak.setEnabled(false);
+                speak(friend_word,i);
                 break;
 
-            case  R.id.fool_donkey_button_stop:
-                foolDonkeyButtonSpeak.setEnabled(true);
+            case  R.id.friend_button_stop:
+                friendButtonSpeak.setEnabled(true);
                 stop();
                 break;
         }
     }
 
+    private abstract class runnable implements Runnable {
+    }
 }

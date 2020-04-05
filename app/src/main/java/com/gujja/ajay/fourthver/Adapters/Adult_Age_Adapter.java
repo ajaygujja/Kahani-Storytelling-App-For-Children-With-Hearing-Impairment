@@ -20,7 +20,6 @@
 package com.gujja.ajay.fourthver.Adapters;
 
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -31,9 +30,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gujja.ajay.fourthver.R;
+import com.gujja.ajay.fourthver.stories.Foolish_Donkey;
 import com.gujja.ajay.fourthver.stories.GreedyLion;
 import com.gujja.ajay.fourthver.stories.Honestly;
-import com.gujja.ajay.fourthver.stories.ThirdStory;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -116,7 +115,7 @@ public class Adult_Age_Adapter extends PagerAdapter {
         read_btn.setOnClickListener(v -> {
             Intent i;
             if (position == 0) {
-                i = new Intent(context, ThirdStory.class);
+                i = new Intent(context, Foolish_Donkey.class);
                 context.startActivity(i);
             }
             if (position == 1) {

@@ -95,6 +95,7 @@ public class Scared_Lil_Mouse extends AppCompatActivity implements TextToSpeech.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scared__lil__mouse);
         ButterKnife.bind(this);
+        Scared_Lil_Mouse.this.setTitle("Scared Little Mouse");
 
         LilMouseTextSent.setText(mouseSentence[0]);
         LilMouseTextWord.setText(mouseWord[0]);

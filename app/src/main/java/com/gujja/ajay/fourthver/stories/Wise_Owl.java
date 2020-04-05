@@ -103,6 +103,7 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wise__owl);
         ButterKnife.bind(this);
+        Wise_Owl.this.setTitle("Wise Owl");
 
         owl_text_Word.setText(words[0]);
         owl_text_Sent.setText(sentence[0]);
@@ -169,7 +170,6 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
         @Override
         public void onDone(String utteranceId) {
 
-
             if(utteranceId.equals(" ")){
                 new Thread(){
                  @Override
@@ -178,9 +178,7 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
                          owl_text_Sent.setText(sentence[j]);
                     }
                 };
-
             }
-
             i = i + 1;
             speak(words, i);
         }

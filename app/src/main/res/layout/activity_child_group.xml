@@ -24,7 +24,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Child_Group">
+    tools:context=".activities.Child_Group">
 
     <androidx.viewpager.widget.ViewPager
         android:foregroundGravity="center"

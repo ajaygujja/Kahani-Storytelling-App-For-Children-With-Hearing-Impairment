@@ -179,7 +179,13 @@ public class Cat_Dog extends AppCompatActivity implements TextToSpeech.OnInitLis
             if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 CatDogSignGif.setImageResource(gif_view);
-            } else {
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("played")){
+                int gif_view = getResources().getIdentifier("fiddle", "raw", getPackageName());
+                CatDogSignGif.setImageResource(gif_view);
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("running")){
+                int gif_view = getResources().getIdentifier("run", "raw", getPackageName());
+                CatDogSignGif.setImageResource(gif_view);
+            }  else {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 CatDogSignGif.setImageResource(gif_view);
             }

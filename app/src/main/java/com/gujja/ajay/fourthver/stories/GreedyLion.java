@@ -210,6 +210,9 @@ public class GreedyLion extends AppCompatActivity implements TextToSpeech.OnInit
                             if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                                 GreedyLionSignGif.setImageResource(gif_view);
+                            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("ran")){
+                                int gif_view = getResources().getIdentifier("run", "raw", getPackageName());
+                                GreedyLionSignGif.setImageResource(gif_view);
                             } else {
                                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                                 GreedyLionSignGif.setImageResource(gif_view);

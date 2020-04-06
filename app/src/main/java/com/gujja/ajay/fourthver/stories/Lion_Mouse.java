@@ -118,7 +118,14 @@ public class Lion_Mouse extends AppCompatActivity implements TextToSpeech.OnInit
             if (utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")) {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) + "1", "raw", getPackageName());
                 friendSignGifs.setImageResource(gif_view);
-            } else {
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("lived")){
+                int gif_view = getResources().getIdentifier("life", "raw", getPackageName());
+                friendSignGifs.setImageResource(gif_view);
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("ran")){
+                int gif_view = getResources().getIdentifier("run", "raw", getPackageName());
+                friendSignGifs.setImageResource(gif_view);
+            }
+            else{
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());
                 friendSignGifs.setImageResource(gif_view);
             }

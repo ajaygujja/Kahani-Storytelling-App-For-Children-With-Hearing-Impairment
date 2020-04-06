@@ -69,7 +69,8 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
             "He", "heard", "a", "woman", "saying", "that", "an", "elephant", "jumped", "over", "a", "fence"," ",
             "He", "also", "heard", "a", "man", "saying", "that", "he", "had", "never", "made", "a", "mistake"," ",
             "The", "old", "owl", "had", "seen", "and", "heard", "about", "what", "happened", "to", "people"," ",
-            "Some", "became", "better", "and", "some", "became", "worse", "But", "the", "old", "owl", "had", "become", "wiser", "each", "and", "every", "day"};
+            "Some", "became", "better", "and", "some", "became", "worse"," ",
+            "But", "the", "old", "owl", "had", "become", "wiser", "each", "and", "every", "day"};
 
     String[] sentence = {"There was an old owl that lived in an oak.",
             "Everyday he saw incidents happening around him.",
@@ -81,7 +82,8 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
             "He heard a woman saying that an elephant jumped over a fence.",
             "He also heard a man saying that he had never made a mistake.",
             "The old owl had seen and heard about what happened to people.",
-            "Some became better and some became worse. But the old owl had become wiser each and every day." ,
+            "Some became better and some became worse.",
+            "But the old owl had become wiser each and every day." ,
             };
 
 
@@ -160,6 +162,9 @@ public class Wise_Owl extends AppCompatActivity implements TextToSpeech.OnInitLi
 
             if(utteranceId.toLowerCase(Locale.getDefault()).equals("try") || utteranceId.toLowerCase(Locale.getDefault()).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()) +"1", "raw", getPackageName());
+                owlSignGif.setImageResource(gif_view);
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("lived")){
+                int gif_view = getResources().getIdentifier("life", "raw", getPackageName());
                 owlSignGif.setImageResource(gif_view);
             } else {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.getDefault()), "raw", getPackageName());

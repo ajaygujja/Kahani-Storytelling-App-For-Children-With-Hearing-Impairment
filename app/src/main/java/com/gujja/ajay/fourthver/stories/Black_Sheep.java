@@ -174,6 +174,9 @@ public class Black_Sheep extends AppCompatActivity implements TextToSpeech.OnIni
             if(utteranceId.toLowerCase(Locale.ROOT).equals("try") || utteranceId.toLowerCase(Locale.ROOT).equals("catch") || utteranceId.toLowerCase(Locale.ROOT).equals("while")){
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT) +"1", "raw", getPackageName());
                 BlackSheepSignGif.setImageResource(gif_view);
+            }else if(utteranceId.toLowerCase(Locale.getDefault()).equals("lived")){
+                int gif_view = getResources().getIdentifier("life", "raw", getPackageName());
+                BlackSheepSignGif.setImageResource(gif_view);
             } else {
                 int gif_view = getResources().getIdentifier(utteranceId.toLowerCase(Locale.ROOT), "raw", getPackageName());
                 BlackSheepSignGif.setImageResource(gif_view);

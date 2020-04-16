@@ -42,9 +42,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Adult_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.foolish_donky,
+            R.raw.greedy_lion,
+            R.raw.honesty_is_the_best_policy
     };
     //List of Images
     private int[] ist_images = {
@@ -57,13 +57,13 @@ public class Adult_Age_Adapter extends PagerAdapter {
     private String[] ist_title = {
             "Foolish Donkey",
             "Greedy Lion",
-            "Honestly is the Best Policy"
+            "Honesty is the Best Policy"
     };
     // List Of Description
     private String[] ist_desc = {
-            "A hungry fox who got caught in a tree hole and was beaten up by a woodcutter for stealing his lunch.",
+            "A donkey who tried to reduce his load by playing tricks and at the end was taught a lesson by his owner while increasing is own suffering.",
             "A lion who became greedy for food and at the end was left with nothing.",
-            "A donkey who tried to reduce his load by playing tricks and at the end was taught a lesson by his owner while increasing is own suffering."
+            "A milkman who learned his lesson for being dishonest."
     };
 
     //List of Background Color

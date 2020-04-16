@@ -41,8 +41,8 @@ public class Mid_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
             R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.black_sheep,
+            R.raw.wise_old_owl
     };
 
     //List of Images
@@ -60,8 +60,8 @@ public class Mid_Age_Adapter extends PagerAdapter {
     // List Of Description
     private String[] ist_desc = {
             "A hungry fox who got caught in a tree hole and was beaten up by a woodcutter for stealing his lunch.",
-            "A lion who became greedy for food and at the end was left with nothing.",
-            "A donkey who tried to reduce his load by playing tricks and at the end was taught a lesson by his owner while increasing is own suffering."
+            "A black sheep who was patient and his patience was rewarded by selling all the wool.",
+            "A wise old owl who did more listening than talking and gained more wisdom as it did so."
     };
 
     //List of Background Color

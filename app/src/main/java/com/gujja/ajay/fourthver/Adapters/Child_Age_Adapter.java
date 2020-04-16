@@ -40,9 +40,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Child_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.cat_and_dog,
+            R.raw.scared_little_mouse,
+            R.raw.lion_and_mouse
     };
 
     //List of Images
@@ -59,7 +59,7 @@ public class Child_Age_Adapter extends PagerAdapter {
     };
     // List Of Description
     private String[] ist_desc = {
-            "A cat and dog after spending time together become best friends.",
+            "A cat and dog spending time together become best friends.",
             "A big cat was chasing little mouse because of that he was scared.",
             "A lion who threatened the mouse but was saved by the same mouse during crisis",
     };

@@ -42,9 +42,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Adult_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.foolish_donky,
+            R.raw.greedy_lion,
+            R.raw.honesty_is_the_best_policy
     };
     //List of Images
     private int[] ist_images = {
@@ -57,7 +57,7 @@ public class Adult_Age_Adapter extends PagerAdapter {
     private String[] ist_title = {
             "Foolish Donkey",
             "Greedy Lion",
-            "Honestly is the Best Policy"
+            "Honesty is the Best Policy"
     };
     // List Of Description
     private String[] ist_desc = {

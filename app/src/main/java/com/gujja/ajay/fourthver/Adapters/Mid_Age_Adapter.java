@@ -41,8 +41,8 @@ public class Mid_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
             R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.black_sheep,
+            R.raw.wise_old_owl
     };
 
     //List of Images

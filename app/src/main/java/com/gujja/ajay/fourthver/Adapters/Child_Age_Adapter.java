@@ -40,9 +40,9 @@ import pl.droidsonroids.gif.GifImageView;
 public class Child_Age_Adapter extends PagerAdapter {
 
     private int[] gif_slide = {
-            R.raw.hungry_fox,
-            R.raw.hungry_fox,
-            R.raw.hungry_fox
+            R.raw.cat_and_dog,
+            R.raw.scared_little_mouse,
+            R.raw.lion_and_mouse
     };
 
     //List of Images

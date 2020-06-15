@@ -54,13 +54,11 @@ public class AgeSelection extends AppCompatActivity implements View.OnClickListe
 
         Age_ViewPager.addOnPageChangeListener(this);
         Age_Arrow.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
         Age_ViewPager.setCurrentItem(currentPage + 1);
-
     }
 
     @Override

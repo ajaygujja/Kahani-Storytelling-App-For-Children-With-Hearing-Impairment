@@ -1,4 +1,3 @@
-
 /*      Copyright (c) 2020 ajay gujja
 
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
@@ -86,7 +85,7 @@ public class Adult_Age_Adapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return  (view == object);
+        return (view == object);
     }
 
 

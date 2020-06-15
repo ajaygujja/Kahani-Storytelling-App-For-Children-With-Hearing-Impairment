@@ -31,16 +31,7 @@
 
 
 
-    <TextView
-        android:foregroundGravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textColor="#272343"
-        android:layout_marginTop="35dp"
-        android:fontFamily="@font/gelasio_bolditalic"
-        android:gravity="center_horizontal"
-        android:text="@string/what_s_your_age"/>
+
 
     <androidx.viewpager.widget.ViewPager
         android:foregroundGravity="center"
@@ -72,7 +63,7 @@
         app:dotsCornerRadius="8dp"
         app:dotsSize="12dp"
         app:dotsSpacing="4dp"
-        app:dotsWidthFactor="2.5"
+        app:dotsWidthFactor="3.5"
         app:selectedDotColor="@color/red"
         app:progressMode="true"
         android:layout_alignParentBottom="true"

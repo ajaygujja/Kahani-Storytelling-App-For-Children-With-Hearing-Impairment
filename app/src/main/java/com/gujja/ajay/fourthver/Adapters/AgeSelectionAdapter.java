@@ -24,7 +24,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gujja.ajay.fourthver.R;
@@ -33,6 +32,7 @@ import com.gujja.ajay.fourthver.activities.Child_Group;
 import com.gujja.ajay.fourthver.activities.Mid_Age_Group;
 
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import pl.droidsonroids.gif.GifImageView;
 
@@ -43,6 +43,12 @@ public class AgeSelectionAdapter extends PagerAdapter {
             R.drawable.jumping_girl_animation,
             R.drawable.hand_waving_animation,
             R.drawable.lady_guitarplayer
+    };
+
+    private int[] Age_Slide_Gif = {
+            R.raw.black_sheep,
+            R.raw.black_sheep,
+            R.raw.black_sheep
     };
 
 
@@ -71,19 +77,24 @@ public class AgeSelectionAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container,final int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert inflater != null;
         View view = inflater.inflate(R.layout.age_slide, container, false);
 
-        LinearLayout layout_slide = view.findViewById(R.id.Age_Linear_layout);
+//        LinearLayout layout_slide = view.findViewById(R.id.Age_Linear_layout);
+        CoordinatorLayout layout_slide = view.findViewById(R.id.slideLinearLayout);
         GifImageView gifImageView = view.findViewById(R.id.Age_Lottie);
+        GifImageView Age_Selection_GifView = view.findViewById(R.id.Age_Selection_SlideGif);
         TextView textView = view.findViewById(R.id.Age_Selection_Number);
         Button select_btn = view.findViewById(R.id.Age_Selection_Number_Btn);
 
+//        Age_Selection_GifView.setImageResource(R.raw.black_sheep);
+        Age_Selection_GifView.setBackgroundResource(Age_Slide_Gif[position]);
 
         gifImageView.setImageResource(first_gif[position]);
         textView.setText(first_agetext[position]);
+
 
         select_btn.setOnClickListener(v -> {
             Intent i;
@@ -108,6 +119,6 @@ public class AgeSelectionAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((CoordinatorLayout) object);
     }
 }

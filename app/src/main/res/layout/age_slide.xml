@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Copyright (c) 2020 ajay gujja
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
@@ -18,52 +17,106 @@
 
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/AgeSelection_CoordinatorLayout"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:id="@+id/Age_Linear_layout"
     android:layout_height="match_parent">
 
-
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/Age_Lottie"
-        android:layout_width="200dp"
-        android:layout_height="250dp"
-        android:foregroundGravity="center"
-        android:scaleType="centerCrop"
-        />
-
-
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:id="@+id/Age_Selection_Number"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:fontFamily="@font/oswald_regular"
-        android:gravity="center_horizontal"
-        android:textColor="#000"
-        />
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/Age_Selection_collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/Age_Selection_SlideGif"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
 
 
-    <Button
-        android:background="@drawable/buttonshape"
-        android:id="@+id/Age_Selection_Number_Btn"
-        android:layout_width="wrap_content"
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/select"
-        android:textSize="16sp"
-        android:fontFamily="@font/gelasio_regular"
-        android:paddingRight="25dp"
-        android:paddingLeft="25dp"
-        android:paddingBottom="18dp"
-        android:paddingTop="18dp"
-        android:layout_marginTop="30dp"
-        android:textColor="#ffffff"
-        />
+        android:layout_gravity="center"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/Age_Linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+         android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gelasio_bolditalic"
+                android:foregroundGravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/what_s_your_age"
+                android:textColor="#272343"
+                android:textSize="30sp" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/Age_Lottie"
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="35dp"
+                android:foregroundGravity="center"
+                android:scaleType="centerCrop" />
+
+
+            <TextView
+                android:id="@+id/Age_Selection_Number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/oswald_regular"
+                android:gravity="center_horizontal"
+                android:textColor="#000"
+                android:textSize="25sp" />
+
+
+            <Button
+                android:id="@+id/Age_Selection_Number_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/buttonshape"
+                android:fontFamily="@font/gelasio_regular"
+                android:paddingLeft="25dp"
+                android:paddingTop="18dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="18dp"
+                android:text="@string/select"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

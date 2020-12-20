@@ -84,7 +84,7 @@ public class Child_Age_Adapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view == (CoordinatorLayout) object);
+        return (view == object);
     }
 
     @NonNull

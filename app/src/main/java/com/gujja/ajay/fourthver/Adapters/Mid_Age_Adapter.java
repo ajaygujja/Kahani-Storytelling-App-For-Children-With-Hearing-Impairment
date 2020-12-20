@@ -72,6 +72,7 @@ public class Mid_Age_Adapter extends PagerAdapter {
     };
 
     private Context context;
+
     public Mid_Age_Adapter(Context context) {
         this.context = context;
     }
@@ -83,7 +84,7 @@ public class Mid_Age_Adapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return  (view == object);
+        return (view == object);
     }
 
     @NonNull
@@ -121,7 +122,6 @@ public class Mid_Age_Adapter extends PagerAdapter {
                 i = new Intent(context, Wise_Owl.class);
                 context.startActivity(i);
             }
-
         });
         container.addView(view);
         return view;

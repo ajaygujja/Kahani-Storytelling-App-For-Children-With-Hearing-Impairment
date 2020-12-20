@@ -39,8 +39,19 @@
             android:layout_weight="70"
             android:fontFamily="@font/gelasio_bolditalic"
             android:gravity="center"
+            android:layout_marginTop="-10dp"
             android:text="Hello World!"
             android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/Cat_Dog_StopWord"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:fontFamily="@font/gelasio_italic"
+            android:gravity="center"
+            android:textSize="20sp"
+
+            />
 
         <TextView
             android:id="@+id/Cat_Dog_TextWord"

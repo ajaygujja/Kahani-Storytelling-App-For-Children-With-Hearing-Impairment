@@ -52,6 +52,7 @@
             android:layout_weight="30"
             android:fontFamily="@font/gelasio_italic"
             android:textSize="25sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -84,13 +85,11 @@
                 android:src="@drawable/ic_stop_black_24dp"
                 />
 
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/Greedy_Lion_SignImage"
@@ -101,11 +100,6 @@
 
         </LinearLayout>
 
-
-
-
-
     </LinearLayout>
-
 
 </LinearLayout>
